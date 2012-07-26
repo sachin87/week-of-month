@@ -1,0 +1,22 @@
+= Week Of Month
+
+Week Of Month is a library which gives you week_of_month method on date object, 
+that returns week of the month. It basically extendts the Date class, with 
+several useful date helpers.
+
+== Getting Started
+
+Week Of Month is released as a Ruby Gem. The gem is to be installed within a Ruby
+on Rails. To install, simply add the following to your Gemfile:
+
+  gem 'week_of_month'
+
+== Tools Being Used
+
+We believe strongly in not writing code unless we have to, so Week Of Month is built using
+
+ActiveSupport
+
+== Copyright
+
+Copyright (c) 2012 Sachin Singh. See LICENSE for details.
