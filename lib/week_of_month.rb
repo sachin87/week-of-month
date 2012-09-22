@@ -1,8 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-require 'active_support'
-require 'active_support/core_ext/date/calculations.rb'
+require 'date'
 
 class Date
 
@@ -22,6 +21,105 @@ class Date
                                     3 =>'サード', 4=> '第4回',
                   5 =>'第五',6=> 'シックス' }
 
+ 
+  GENERAL_YEAR = { "January" => 31, "February" => 28, "March" => 31, 
+                   "April" => 30, "May" => 31, "June" => 30, "July" => 31, 
+                   "August" => 31, "September" => 30, "October" => 31, 
+                   "November" => 30, "December" => 31 }
+                   
+   LEAP_YEAR =   { "January" => 31, "February" => 28, "March" => 31, 
+                   "April" => 30, "May" => 31, "June" => 30, "July" => 31, 
+                   "August" => 31, "September" => 30, "October" => 31, 
+                   "November" => 30, "December" => 31 }
+    
+  def last_day_of_month
+    if january?
+       31
+    elsif february?
+      if leap?
+        29
+      else
+        28
+      end
+    elsif march?
+      31
+    elsif april?
+      30
+    elsif may?
+      31
+    elsif june?
+      30
+    elsif july?
+      31
+    elsif august?
+      31
+    elsif september?
+      30
+    elsif october?
+      31
+    elsif november?
+      30
+    elsif december?
+      31
+    end
+  end       
+
+  def january?
+    month == 1
+  end
+  
+  def february?
+    month == 2
+  end
+  
+  def march?
+    month == 3
+  end
+  
+  def april?
+    month == 4
+  end
+  
+  def may?
+     month == 5
+  end
+  
+  def june?
+    month == 6  
+  end
+  
+  def july?
+    month == 7
+  end
+  
+  def august?
+    month == 8  
+  end
+  
+  def september?
+    month == 9
+  end
+  
+  def october?
+    month == 10
+  end
+  
+  def november?
+    month == 11
+  end
+  
+  def december?
+    month == 12
+  end
+  
+  def end_of_month
+    Date.new(year,month,last_day_of_month)
+  end
+  
+  def beginning_of_month
+    Date.new(year,month,1)
+  end
+
   def days_array
     day = self.beginning_of_month.wday
     array = []
@@ -35,7 +133,7 @@ class Date
   end
   
   def week_of_month
-    week_split.each_with_index do |o,i|
+    week_split.each_with_index do |o,i| 
       return (i + 1) if o.include?(self.day)
     end
   end

@@ -67,7 +67,7 @@ on Rails. To install, simply add the following to your Gemfile:
 
 We believe strongly in not writing code unless we have to, so Week Of Month is built using
 
-ActiveSupport
+Ruby Date Class
 
 == Copyright
 
