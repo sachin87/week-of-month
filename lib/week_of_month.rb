@@ -111,6 +111,34 @@ class Date
   def december?
     month == 12
   end
+
+  def sunday?
+    Date.new(year,month,day).wday == 0
+  end
+
+  def monday?
+    Date.new(year,month,day).wday == 1
+  end
+
+  def tuesday?
+    Date.new(year,month,day).wday == 2
+  end
+
+  def wednesday?
+    Date.new(year,month,day).wday == 3
+  end
+
+  def thursday?
+    Date.new(year,month,day).wday == 4
+  end
+
+  def friday?
+    Date.new(year,month,day).wday == 5
+  end
+
+  def saturday?
+    Date.new(year,month,day).wday == 6
+  end
   
   def end_of_month
     Date.new(year,month,last_day_of_month)
@@ -169,5 +197,17 @@ class Date
   def week_of_month_in_jap
     WEEK_IN_JAP[week_of_month]
   end
+
+  def name_of_week_day
+    Date.new(year,month,day).strftime('%A')
+  end
+
+  def name_of_month
+    Date.new(year,month,day).strftime('%B')
+  end  
+
+  def leap_year?
+    year%4 == 0
+  end  
 
 end
