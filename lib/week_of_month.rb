@@ -21,125 +21,30 @@ class Date
                                     3 =>'サード', 4=> '第4回',
                   5 =>'第五',6=> 'シックス' }
 
- 
-  GENERAL_YEAR = { "January" => 31, "February" => 28, "March" => 31, 
-                   "April" => 30, "May" => 31, "June" => 30, "July" => 31, 
-                   "August" => 31, "September" => 30, "October" => 31, 
-                   "November" => 30, "December" => 31 }
+  MONTH_WITH_DAY = { :january => 31, :february => 28, :march => 31, 
+                   :april => 30, :may => 31, :june => 30, :july => 31, 
+                   :august => 31, :september => 30, :october => 31, 
+                   :november => 30, :december => 31 }
                    
-   LEAP_YEAR =   { "January" => 31, "February" => 28, "March" => 31, 
-                   "April" => 30, "May" => 31, "June" => 30, "July" => 31, 
-                   "August" => 31, "September" => 30, "October" => 31, 
-                   "November" => 30, "December" => 31 }
+  MONTH_WITH_SEQUENCE = { :january => 1, :february => 2, :march => 3, 
+                          :april => 4, :may => 5, :june => 6, :july => 7, 
+                          :august => 8, :september => 9, :october => 10, 
+                          :november => 11, :december => 12 }
     
-  def last_day_of_month
-    if january?
-       31
-    elsif february?
-      if leap?
-        29
-      else
-        28
-      end
-    elsif march?
-      31
-    elsif april?
-      30
-    elsif may?
-      31
-    elsif june?
-      30
-    elsif july?
-      31
-    elsif august?
-      31
-    elsif september?
-      30
-    elsif october?
-      31
-    elsif november?
-      30
-    elsif december?
-      31
-    end
-  end       
-
-  def january?
-    month == 1
-  end
-  
-  def february?
-    month == 2
-  end
-  
-  def march?
-    month == 3
-  end
-  
-  def april?
-    month == 4
-  end
-  
-  def may?
-     month == 5
-  end
-  
-  def june?
-    month == 6  
-  end
-  
-  def july?
-    month == 7
-  end
-  
-  def august?
-    month == 8  
-  end
-  
-  def september?
-    month == 9
-  end
-  
-  def october?
-    month == 10
-  end
-  
-  def november?
-    month == 11
-  end
-  
-  def december?
-    month == 12
-  end
-
-  def sunday?
-    Date.new(year,month,day).wday == 0
-  end
-
-  def monday?
-    Date.new(year,month,day).wday == 1
-  end
-
-  def tuesday?
-    Date.new(year,month,day).wday == 2
-  end
-
-  def wednesday?
-    Date.new(year,month,day).wday == 3
-  end
-
-  def thursday?
-    Date.new(year,month,day).wday == 4
-  end
-
-  def friday?
-    Date.new(year,month,day).wday == 5
-  end
-
-  def saturday?
-    Date.new(year,month,day).wday == 6
-  end
-  
+   MONTH_WITH_DAY.keys.each do |month_name|
+     define_method((month_name.to_s + '?').to_sym) do      
+       MONTH_WITH_SEQUENCE[month_name] == month      
+     end
+   end
+   
+   def last_day_of_month
+     if leap? && february?
+       29
+     else
+       MONTH_WITH_DAY[MONTH_WITH_SEQUENCE.key(month)]
+     end 
+   end 
+         
   def end_of_month
     Date.new(year,month,last_day_of_month)
   end
@@ -204,10 +109,6 @@ class Date
 
   def name_of_month
     Date.new(year,month,day).strftime('%B')
-  end  
-
-  def leap_year?
-    year%4 == 0
   end  
 
 end
