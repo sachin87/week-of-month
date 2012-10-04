@@ -1,7 +1,7 @@
 = Week Of Month
 
 Week Of Month is a library which gives you week_of_month method on date object, 
-that returns week of the month. It basically extendts the Date class, with 
+that returns week of the month. It basically extendts the Date class with 
 several useful date helpers.
 
 == Getting Started
