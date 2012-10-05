@@ -6,6 +6,6 @@ Gem::Specification.new do |s|
   s.description = "Its gives you week_of_month method on date object, that returns week of the month."
   s.authors     = ["Sachin Singh"]
   s.email       = 'sachin@railsdeveloper.in'
-  s.files       = ["lib/week_of_month.rb"]
+  s.files       = ["lib/week_of_month.rb","lib/week_helper.rb"]
   s.homepage    = 'http://rubygems.org/gems/week_of_month'
 end

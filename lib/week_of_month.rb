@@ -1,11 +1,6 @@
-#!/bin/env ruby
-# encoding: utf-8
-
-# TODO SUPPORT for time class object
-
 require 'date'
 require 'time'
-require_relative 'week_helper' 
+require 'week_helper' 
 
 class Date
   include WeekHelper
@@ -13,4 +8,8 @@ end
 
 class Time
   include WeekHelper
+  
+  def leap?
+    self.to_date.leap?
+  end
 end

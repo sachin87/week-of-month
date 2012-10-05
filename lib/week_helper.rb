@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 module WeekHelper
   
   WEEK_IN_ENG = { 1 => 'First', 2 => 'Second',
@@ -25,6 +28,7 @@ module WeekHelper
                           :april => 4, :may => 5, :june => 6, :july => 7, 
                           :august => 8, :september => 9, :october => 10, 
                           :november => 11, :december => 12 }
+                          
     
    MONTH_WITH_DAY.keys.each do |month_name|
      define_method((month_name.to_s + '?').to_sym) do      
@@ -115,30 +119,35 @@ module WeekHelper
   end
   
   def all_mondays_in_month
-    week_split.select{|d| d[1] }
+    week_split.map{|d| d[1] }
   end
   
   def all_tuesdays_in_month
-    week_split.select{|d| d[2] }
+    week_split.map{|d| d[2] }
   end
   
   def all_wednesdays_in_month
-    week_split.select{|d| d[3] }
+    week_split.map{|d| d[3] }
   end
   
   def all_thursdays_in_month
-    week_split.select{|d| d[4] }
+    week_split.map{|d| d[4] }
   end
   
   def all_fridays_in_month
-    week_split.select{|d| d[5] }
+    week_split.map{|d| d[5] }
   end
   
   def all_staturdays_in_month
-    week_split.select{|d| d[6] }
+    week_split.map{|d| d[6] }
   end
  
   def all_sundays_in_month
-    week_split.select{|d| d[0] }
+    week_split.map{|d| d[0] }
   end
+  
+  DAYNAMES.each do |day_name|
+    define_method(day_name.downcase)
+  end
+  
 end
