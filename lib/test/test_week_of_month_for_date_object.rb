@@ -4,7 +4,7 @@
 require 'test/unit'
 require_relative '../week_of_month'
 
-class TestWeekOfMonth < Test::Unit::TestCase
+class TestWeekOfMonthForDateObject < Test::Unit::TestCase
   
   def test_constants_present?
     assert Date::WEEK_IN_ENG
@@ -296,6 +296,55 @@ class TestWeekOfMonth < Test::Unit::TestCase
     assert_equal "October",  Date.new(2012,10,1).name_of_month
     assert_equal "November",  Date.new(2012,11,1).name_of_month
     assert_equal "December",  Date.new(2012,12,1).name_of_month
+  end
+  
+  def test_week_end?
+    assert !Date.new(2012,10,1).week_end?
+    assert !Date.new(2012,10,31).week_end?
+    assert Date.new(2012,10,6).week_end?
+    assert Date.new(2012,10,7).week_end?
+  end
+  
+  def test_working_day?
+    assert Date.new(2012,10,1).working_day?
+    assert Date.new(2012,10,31).working_day?
+    assert !Date.new(2012,10,6).working_day?
+    assert !Date.new(2012,10,7).working_day?
+  end
+  
+  def test_all_sundays_in_month
+    assert_equal [2, 9, 16, 23, 30], Date.new(2012,12,1).all_sundays_in_month
+    assert_equal [7, 14, 21, 28], Date.new(2012,10,1).all_sundays_in_month
+  end
+  
+  def test_all_mondays_in_month
+    assert_equal [3, 10, 17, 24, 31], Date.new(2012,12,1).all_mondays_in_month
+    assert_equal [1, 8, 15, 22, 29], Date.new(2012,10,1).all_mondays_in_month
+  end
+  
+  def test_all_tuesdays_in_month
+    assert_equal [4, 11, 18, 25], Date.new(2012,12,1).all_tuesdays_in_month
+    assert_equal [2, 9, 16, 23, 30], Date.new(2012,10,1).all_tuesdays_in_month
+  end
+
+  def test_all_wednesdays_in_month
+    assert_equal [5, 12, 19, 26], Date.new(2012,12,1).all_wednesdays_in_month
+    assert_equal [3, 10, 17, 24, 31], Date.new(2012,10,1).all_wednesdays_in_month
+  end
+
+  def test_all_thursdays_in_month
+    assert_equal [6, 13, 20, 27], Date.new(2012,12,1).all_thursdays_in_month
+    assert_equal [4, 11, 18, 25], Date.new(2012,10,1).all_thursdays_in_month
+  end
+    
+  def test_all_fridays_in_month
+    assert_equal [7, 14, 21, 28], Date.new(2012,12,1).all_fridays_in_month
+    assert_equal [5, 12, 19, 26], Date.new(2012,10,1).all_fridays_in_month
+  end
+  
+  def test_all_saturdays_in_month
+    assert_equal [1, 8, 15, 22, 29], Date.new(2012,12,1).all_saturdays_in_month
+    assert_equal [6, 13, 20, 27], Date.new(2012,10,1).all_saturdays_in_month
   end
   
 end
