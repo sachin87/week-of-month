@@ -1,8 +1,8 @@
 = Week Of Month
 
-Week Of Month is a library which gives you week_of_month method on date object, 
-that returns week of the month. It basically extendts the Date class with 
-several useful date helpers.
+Week Of Month is a library which gives you week_of_month method on Date and Time 
+class object, that returns week of the month. It basically extendts the Date 
+class with several useful date helpers.
 
 == Getting Started
 
@@ -12,12 +12,10 @@ on Rails. To install, simply add the following to your Gemfile:
   gem 'week_of_month'
   
 == Usage
-    
-   date = Date.new(2012,1,1)
-          
-   # it returns week split of that date's month
+             
+   it returns week split of that date's month
    
-      date.week_split
+   Date.new(2012,1,1).week_split
   
      => [[1, 2, 3, 4, 5, 6, 7],
          [8, 9, 10, 11, 12, 13, 14], 
@@ -25,43 +23,35 @@ on Rails. To install, simply add the following to your Gemfile:
          [22, 23, 24, 25, 26, 27, 28], 
          [29, 30, 31]]
   
-  # it returns month's week in which the date lies
+   it returns month's week in which the date lies
     
-      date.week_of_month
-      => 1
+   Date.new(2012,1,1).week_of_month
+   => 1
 
-  # it return true if date lies in first week of month, else false.
+   it return true if date lies in first week of month, else false.
        
-      date.first_week?
-      => true
+   Date.new(2012,1,1).first_week?
+   => true
    
-  # it returns true if date lies in second week of month, else false.
-      
-       date = Date.new(2012,1,9)
+   it returns true if date lies in second week of month, else false.
    
-       date.second_week?
-       => true
+   Date.new(2012,1,9).second_week?
+   => true
     
-  # it returns true if date lies in last week of month, else false.
+   it returns true if date lies in last week of month, else false.
   
-    date = Date.new(2012,1,31)
+   Date.new(2012,1,31).last_week?
+   => true
+  
+   it returns total number of weeks in month.
+  
+   Date.new(2012,1,31).total_weeks
+   => 5
+  
+  it returns month's week in which the date lies
    
-    date.last_week?
-    => true
-  
-  # it returns total number of weeks in month.
-  
-    date = Date.new(2012,1,31)
-  
-    date.total_weeks
-    => 5
-  
-  # it returns month's week in which the date lies
-   
-    date = Date.new(2012,1,31)
-   
-    date.week_of_month_in_eng
-    => "Fifth"
+  Date.new(2012,1,31).week_of_month_in_eng
+  => "Fifth"
    
 == Tools Being Used
 
@@ -69,6 +59,28 @@ We believe strongly in not writing code unless we have to, so Week Of Month is b
 
 Ruby Date Class
 
+== Version History
+  
+  1.2.0
+  
+  Support for Time class
+  
+  Methods Adde
+
+  name_of_week_day, name_of_month, week_end?, working_day?,
+  all_sundays_in_month, all_mondays_in_month, all_tuesdays_in_month,
+  all_wednesdays_in_month, all_thursdays_in_month, all_fridays_in_month,
+  all_saturdays_in_month
+  
+  1.1.0
+  
+  ActiveSupport Dependency removed
+  
+  Methods Added
+  
+  january?, february?, march?, april?, may?, june?, july?,
+  august?, september?, october?, november?, december?, last_day_of_month
+  
 == Copyright
 
 Copyright (c) 2012 Sachin Singh. See LICENSE for details.
