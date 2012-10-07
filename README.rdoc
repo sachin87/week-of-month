@@ -61,7 +61,7 @@ Ruby Date Class
 
 == Version History
   
-  1.2.0
+  1.2.1
   
   Support for Time class
   
