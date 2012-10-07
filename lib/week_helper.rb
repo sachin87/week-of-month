@@ -85,21 +85,12 @@ module WeekHelper
   def total_weeks
     week_split.size
   end
-
-  def week_of_month_in_eng
-    WEEK_IN_ENG[week_of_month]
-  end
-
-  def week_of_month_in_fr
-    WEEK_IN_FR[week_of_month]
-  end
-
-  def week_of_month_in_ger
-    WEEK_IN_GER[week_of_month]
-  end
-
-  def week_of_month_in_jap
-    WEEK_IN_JAP[week_of_month]
+  
+  ['eng', 'fr', 'ger', 'jap'].each do |lang|
+    method_name = "week_of_month_in_#{lang}"
+    define_method(method_name) do
+      eval "WEEK_IN_#{lang.upcase}[week_of_month]"
+    end
   end
 
   def name_of_week_day
@@ -118,36 +109,12 @@ module WeekHelper
     !week_end?
   end
   
-  def all_mondays_in_month
-    week_split.map{|d| d[1] }
+  Date::DAYNAMES.each_with_index do |day_name, i|
+    method_name = "all_#{day_name.downcase}s_in_month".to_sym
+    define_method(method_name) do
+      week_split.map{|d| d[i] }.compact
+    end
   end
-  
-  def all_tuesdays_in_month
-    week_split.map{|d| d[2] }
-  end
-  
-  def all_wednesdays_in_month
-    week_split.map{|d| d[3] }
-  end
-  
-  def all_thursdays_in_month
-    week_split.map{|d| d[4] }
-  end
-  
-  def all_fridays_in_month
-    week_split.map{|d| d[5] }
-  end
-  
-  def all_staturdays_in_month
-    week_split.map{|d| d[6] }
-  end
- 
-  def all_sundays_in_month
-    week_split.map{|d| d[0] }
-  end
-  
-  DAYNAMES.each do |day_name|
-    define_method(day_name.downcase)
-  end
-  
+    
 end
+
