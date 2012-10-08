@@ -1,7 +1,7 @@
 = Week Of Month
 
 Week Of Month is a library which gives you week_of_month method on Date and Time 
-class object, that returns week of the month. It basically extendts the Date 
+class object, that returns week of the month. It basically extends the Date 
 class with several useful date helpers.
 
 == Getting Started
@@ -58,6 +58,7 @@ on Rails. To install, simply add the following to your Gemfile:
 We believe strongly in not writing code unless we have to, so Week Of Month is built using
 
 Ruby Date Class
+Ruby Time Class
 
 == Version History
   
