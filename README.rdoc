@@ -55,10 +55,11 @@ on Rails. To install, simply add the following to your Gemfile:
    
 == Tools Being Used
 
-We believe strongly in not writing code unless we have to, so Week Of Month is built using
+  We believe strongly in not writing code unless we have to, so Week Of Month is built using
 
-Ruby Date Class
-Ruby Time Class
+  Ruby Date Class
+    
+  Ruby Time Class
 
 == Version History
   

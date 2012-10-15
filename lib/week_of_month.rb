@@ -1,13 +1,19 @@
 require 'date'
 require 'time'
-require 'week_helper' 
+require_relative 'modules/day'
+require_relative 'modules/month'
+require_relative 'modules/week'
 
 class Date
-  include WeekHelper
+  include WeekOfMonth::Day
+  include WeekOfMonth::Month
+  include WeekOfMonth::Week
 end
 
 class Time
-  include WeekHelper
+  include WeekOfMonth::Day
+  include WeekOfMonth::Month
+  include WeekOfMonth::Week
   
   def leap?
     self.to_date.leap?
