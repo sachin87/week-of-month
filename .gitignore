@@ -1,0 +1,24 @@
+## Netbeans
+nbproject/
+
+## Aptans
+.project
+
+## EMACS
+*~
+\#*
+.\#*
+
+## VIM
+*.swp
+
+# IDEA / RUBYMINE
+.idea
+
+## PROJECT::GENERAL
+tags
+coverage
+rdoc
+doc
+.yardoc
+pkg
