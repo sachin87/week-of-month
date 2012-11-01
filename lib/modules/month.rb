@@ -7,6 +7,10 @@ module WeekOfMonth
 
     include WeekOfMonth::Constant
     
+    module ClassMethods
+      
+    end
+    
     # this code generates method named like january?..december?
     # to check whether a month is january or march? etc.
     # @return [Boolean]

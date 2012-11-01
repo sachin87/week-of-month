@@ -7,6 +7,10 @@ module WeekOfMonth
 
     include WeekOfMonth::Constant
     
+    module ClassMethods
+      
+    end
+    
     # returns week of month for a given date
     # Date.new(2012,11,15).week_of_month
     #   => 3

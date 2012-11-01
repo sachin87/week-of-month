@@ -1,6 +1,23 @@
 module WeekOfMonth
   module Day
     
+    def self.included(klass)
+      klass.extend(ClassMethods)
+    end
+    
+    module ClassMethods
+      
+      # Date.days_between_dates(Date.new(2012,11,1),Date.new(2012,11,15))
+      #   => 45
+      # Time.days_between_dates(Time.new(2012,11,1),Time.new(2012,11,15))
+      #   => 45
+      # @return [Fixnum]
+      def self.days_between_date(date1,date2)
+        date1.day - date2.day
+      end
+      
+    end
+    
     # gives array of days in month
     # Date.new(2012,1,1).days_array
     #   => [nil, nil, nil, nil, 1, 2, 3,
@@ -17,38 +34,31 @@ module WeekOfMonth
       array
     end
 
-   # Date.new(2012,11,1).name_of_week_day
-   #   => 'Thursday'
-   # @return [String]
-   def name_of_week_day
-     self.class.new(year,month,day).strftime('%A')
-   end
-   
-   # Date.new(2012,11,1).days_between_date(Date.new(2012,11,15))
-   #   => 45
-   # @return [Fixnum]
-   def days_between_date(date)
-     self.day - date.day
-   end
-   
-   # this code generates method names like 'upcomong_monday' and 'previous_monday'
-   # Date.new(2012,11,1).upcoming_monday
-   # => 
-   # Date.new(2012,11,1).previous_monday
-   # =>  
-   { 'upcoming' => '+', 'previous' => '-'}.each_pair do |key,value|
-     Date::DAYNAMES.each do |day_name|
-       name = "#{key}_#{day_name}".to_sym
-       check = "#{day_name}?".to_sym
-       define_method(name) do
-         date = eval "self"
-         until date.send(check)
-           date = date.send(value,1.day)
-         end
-         date
-       end
-     end
-   end
+    # Date.new(2012,11,1).name_of_week_day
+    #   => 'Thursday'
+    # @return [String]
+    def name_of_week_day
+      self.class.new(year,month,day).strftime('%A')
+    end
+      
+    # this code generates method names like 'upcomong_monday' and 'previous_monday'
+    # Date.new(2012,11,1).upcoming_monday
+    # => 
+    # Date.new(2012,11,1).previous_monday
+    # =>  
+    { 'upcoming' => '+', 'previous' => '-' }.each_pair do |key,value|
+      Date::DAYNAMES.each do |day_name|
+        name = "#{key}_#{day_name}".to_sym
+        check = "#{day_name}?".to_sym
+        define_method(name) do
+          date = eval "self"
+          until date.send(check)
+            date = date.send(value,1.day)
+          end
+          date
+        end
+      end
+    end
    
   end
 end
