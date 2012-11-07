@@ -7,8 +7,21 @@ module WeekOfMonth
 
     include WeekOfMonth::Constant
     
+    def self.included(klass)
+      klass.extend(ClassMethods)
+    end
+    
     module ClassMethods
-      
+      # @param[Date,Date]
+      # Date.months_between_dates(Date.new(2012,11,1),Date.new(2012,1,15))
+      #   => 10
+      # @param[Time,Time]
+      # Time.months_between_dates(Time.new(2012,11,1),Time.new(2012,1,15))
+      #   => 10
+      # @return [Fixnum]
+      def months_between_dates(date1,date2)
+        (date1.month - date2.month).abs
+      end
     end
     
     # this code generates method named like january?..december?
@@ -66,15 +79,6 @@ module WeekOfMonth
       define_method(method_name) do
         week_split.map{|d| d[i] }.compact
       end
-    end
-    
-    # it returns number of months between dates
-    # Date.new(2012,11,1).months_between_date(2012,12,1)
-    #   => 1
-    # @param [Date] 
-    # @return [Fixnum]
-    def months_between_date(date)
-      (self.month - date.month).abs
     end
     
   end

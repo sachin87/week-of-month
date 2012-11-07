@@ -39,6 +39,122 @@ class TestDay < Test::Unit::TestCase
     end
   end
   
+  def test_days_between_dates
+    [Date,Time].each do |klass|
+      assert_equal 17, klass.days_between_dates(klass.new(2012,12,1),klass.new(2012,12,17))
+    end
+  end
   
-
+  def test_upcoming_sunday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_sunday
+      end
+    end
+  end
+  
+  def test_upcoming_monday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_monday
+      end
+    end
+  end
+ 
+  def test_upcoming_tuesday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_tuesday
+      end
+    end
+  end
+ 
+  def test_upcoming_wednesday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_wednesday
+      end
+    end
+  end
+ 
+  def test_upcoming_thursday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_thursday
+      end
+    end
+  end
+ 
+  def test_upcoming_friday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_friday
+      end
+    end
+  end
+ 
+  def test_upcoming_saturday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_saturday
+      end
+    end
+  end
+ 
+  def test_previous_saturday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).previous_saturday
+      end
+    end
+  end
+  
+  def test_previous_friday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_friday
+      end
+    end
+  end 
+  
+  def test_previous_thursday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_thursday
+      end
+    end
+  end 
+  
+  def test_previous_wednesday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_wednesday
+      end
+    end
+  end 
+  
+  def test_previous_tuesday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_tuesday
+      end
+    end
+  end 
+  
+    def test_previous_monday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_monday
+      end
+    end
+  end
+  
+  def test_previous_sunday
+    [Date,Time].each do |klass|
+      Date::DAYNAMES.each do |day_name|
+        assert_equal 17, klass.new(2012,12,1).upcoming_sunday
+      end
+    end
+  end
+  
 end

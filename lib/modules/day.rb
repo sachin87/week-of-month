@@ -1,3 +1,8 @@
+#!/bin/env ruby
+# encoding: utf-8
+
+# @author Sachin Singh
+
 module WeekOfMonth
   module Day
     
@@ -7,12 +12,14 @@ module WeekOfMonth
     
     module ClassMethods
       
+      # @param[Date,Date]
       # Date.days_between_dates(Date.new(2012,11,1),Date.new(2012,11,15))
       #   => 45
+      # @param[Time,Time]
       # Time.days_between_dates(Time.new(2012,11,1),Time.new(2012,11,15))
       #   => 45
       # @return [Fixnum]
-      def self.days_between_date(date1,date2)
+      def days_between_dates(date1,date2)
         date1.day - date2.day
       end
       
@@ -48,12 +55,12 @@ module WeekOfMonth
     # =>  
     { 'upcoming' => '+', 'previous' => '-' }.each_pair do |key,value|
       Date::DAYNAMES.each do |day_name|
-        name = "#{key}_#{day_name}".to_sym
-        check = "#{day_name}?".to_sym
+        name = "#{key}_#{day_name.downcase}".to_sym
+        check = "#{day_name.downcase}?".to_sym
         define_method(name) do
           date = eval "self"
           until date.send(check)
-            date = date.send(value,1.day)
+            date = date.send(value,1.days)
           end
           date
         end

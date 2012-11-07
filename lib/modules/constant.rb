@@ -1,6 +1,8 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+# @author Sachin Singh
+
 module WeekOfMonth
   module Constant
     
