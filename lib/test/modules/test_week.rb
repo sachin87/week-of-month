@@ -146,4 +146,46 @@ class TestWeek < Test::Unit::TestCase
     end
   end
   
+   def test_weeks_between_dates
+    [Date,Time].each do |klass|
+      assert_equal 3, klass.test_weeks_between_dates(Date.new(2015,11,1),Date.new(2012,11,15))
+    end
+  end
+  
+    def test_days_past_in_week
+      [Date,Time].each do |klass|
+        assert_equal 3, klass.new(2012,12,1).test_days_past_in_week
+      end
+    end
+    
+    def test_days_left_in_week
+      [Date,Time].each do |klass|
+        assert_equal 3, klass.new(2012,12,1).days_left_in_week
+      end
+    end
+    
+    def test_beginning_of_week
+      [Date,Time].each do |klass|
+        assert_equal 3, klass.new(2012,12,1).beginning_of_week
+      end
+    end
+    
+    def test_end_of_week
+      [Date,Time].each do |klass|
+        assert_equal 3, klass.new(2012,12,1).end_of_week
+      end
+    end
+    
+    def test_next_week
+      [Date,Time].each do |klass|
+        assert_equal 3, klass.new(2012,12,1).next_week
+      end
+    end
+    
+    def test_previous_week
+      [Date,Time].each do |klass|
+        assert_equal 3, klass.new(2012,12,1).previous_week
+      end
+    end
+  
 end

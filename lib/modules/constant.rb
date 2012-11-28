@@ -22,7 +22,7 @@ module WeekOfMonth
     WEEK_IN_JAP = { 1 => '最初', 2 => '秒', 3 => 'サード',
                     4 => '第4回', 5 => '第五', 6=> 'シックス', 7 =>  '第7' }
     
-    # hash containg month name with days in that month(in one non leap yaer)
+    # hash containg month name with days in that month(in non leap yaer)
     MONTH_WITH_DAY = { :january => 31, :february => 28, :march => 31,
                        :april => 30, :may => 31, :june => 30, :july => 31,
                        :august => 31, :september => 30, :october => 31,
