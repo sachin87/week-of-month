@@ -83,6 +83,10 @@ on Rails. To install, simply add the following to your Gemfile:
   january?, february?, march?, april?, may?, june?, july?,
   august?, september?, october?, november?, december?, last_day_of_month
   
+== Contributing to Week Of Month
+
+  Fork, fix, then send me a pull request.
+  
 == Copyright
 
 (The MIT License)
