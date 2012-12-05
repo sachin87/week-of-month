@@ -108,28 +108,64 @@ module WeekOfMonth
       end
     end
     
+    # it returns days past in the week
+    # Date.new(2012,11,15).days_past_in_week
+    #   => 3
+    # Time.new(2012,11,30).days_past_in_week
+    #   => 5
+    # @return [Fixnum] 
     def days_past_in_week
       self.week_of_month
     end
     
+    # it returns days left in the week
+    # Date.new(2012,11,15).days_left_in_week
+    #   => 4
+    # Time.new(2012,11,30).days_left_in_week
+    #   => 2
+    # @return [Fixnum]
     def days_left_in_week
       7 - days_past_in_week
     end
     
+    # it returns date of the first day(sunday) of the week
+    # Date.new(2012,11,15).beginning_of_week
+    #   => #<Date: 2012-11-12 ((2456244j,0s,0n),+0s,2299161j)>
+    # Time.new(2012,11,30).beginning_of_week
+    #   => 2012-11-29 23:59:55 +0530
+    # @return [Date || Time] 
     def beginning_of_week
-      self - days_past_in_week.days
+      self - days_past_in_week
     end
     
+    # it returns date of the last day(saturday) of the week
+    # Date.new(2012,11,15).end_of_week
+    #   => #<Date: 2012-11-19 ((2456251j,0s,0n),+0s,2299161j)>
+    # Time.new(2012,11,30).end_of_week
+    #   => 2012-11-30 00:00:02 +0530
+    # @return [Date || Time] 
     def end_of_week
       self + days_left_in_week
     end
     
+    # it returns date of the next week day.
+    # Date.new(2012,11,15).next_week
+    #   => #<Date: 2012-11-22 ((2456254j,0s,0n),+0s,2299161j)>
+    # Time.new(2012,11,30).next_week
+    #   => 2012-11-30 00:00:07 +0530
+    # @return [Date || Time] 
     def next_week
-      self + 7.days
+      self + 7
     end
     
+    # it returns date of the previous week day.
+    # Date.new(2012,11,15).previous_week
+    #   => #<Date: 2012-11-08 ((2456240j,0s,0n),+0s,2299161j)>
+    # Time.new(2012,11,30).previous_week
+    #   => 2012-11-29 23:59:53 +0530
+    # @return [Date || Time] 
     def previous_week
-      self - 7.days
+      self - 7
     end
     
   end
