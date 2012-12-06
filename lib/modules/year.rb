@@ -3,6 +3,10 @@
 module WeekOfMonth
   module Year
     
+    def self.included(klass)
+      klass.extend(ClassMethods)
+    end
+    
     module ClassMethods
       # @param[Date,Date]
       # Date.years_between_dates(Date.new(2015,11,1),Date.new(2012,11,15))

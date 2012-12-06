@@ -5,6 +5,8 @@
 
 module WeekOfMonth
   module Day
+      require 'date'
+      require 'time'
     
     def self.included(klass)
       klass.extend(ClassMethods)
@@ -60,7 +62,7 @@ module WeekOfMonth
         define_method(name) do
           date = eval "self"
           until date.send(check)
-            date = date.send(value,1.days)
+            date = date.send(value,1)
           end
           date
         end
