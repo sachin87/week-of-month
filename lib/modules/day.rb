@@ -5,8 +5,6 @@
 
 module WeekOfMonth
   module Day
-      require 'date'
-      require 'time'
     
     def self.included(klass)
       klass.extend(ClassMethods)

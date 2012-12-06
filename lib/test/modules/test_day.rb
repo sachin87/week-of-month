@@ -15,7 +15,7 @@ class TestDay < Test::Unit::TestCase
       assert_kind_of Array,object.days_array
       assert_equal days_array_for_february, object.days_array
 
-      date = klass.new(2012,7,1)
+      object = klass.new(2012,7,1)
       days_array_for_july = [1, 2, 3, 4, 5, 6, 7,
                              8, 9, 10, 11, 12, 13,
                              14, 15, 16, 17, 18, 19,
