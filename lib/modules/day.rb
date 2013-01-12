@@ -20,7 +20,7 @@ module WeekOfMonth
       #   => 45
       # @return [Fixnum]
       def days_between_dates(date1,date2)
-        date1.day - date2.day
+        (date1.day - date2.day).abs
       end
       
     end
@@ -59,10 +59,16 @@ module WeekOfMonth
         check = "#{day_name.downcase}?".to_sym
         define_method(name) do
           date = eval "self"
-          until date.send(check)
-            date = date.send(value,1)
-          end
-          date
+          if date.send(check)
+            date = date.send(value,7)
+            p day_name
+            p date 
+           else
+             until date.send(check)
+               date = date.send(value,1)
+             end
+           end
+           date
         end
       end
     end

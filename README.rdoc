@@ -13,9 +13,9 @@ on Rails. To install, simply add the following to your Gemfile:
   
 == Usage
              
-It returns week split of that date's month
-   
-Date.new(2012,1,1).week_split
+ It returns week split of that date's month
+  
+ Date.new(2012,1,1).week_split
   
  => [[1, 2, 3, 4, 5, 6, 7],
     [8, 9, 10, 11, 12, 13, 14], 
@@ -23,34 +23,34 @@ Date.new(2012,1,1).week_split
     [22, 23, 24, 25, 26, 27, 28], 
     [29, 30, 31]]
   
-It returns month's week in which the date lies
+ It returns month's week in which the date lies
     
-Date.new(2012,1,1).week_of_month
+ Date.new(2012,1,1).week_of_month
  => 1
 
-It return true if date lies in first week of month, else false.
+ It return true if date lies in first week of month, else false.
        
-Date.new(2012,1,1).first_week?
+ Date.new(2012,1,1).first_week?
  => true
    
-It returns true if date lies in second week of month, else false.
+ It returns true if date lies in second week of month, else false.
    
-Date.new(2012,1,9).second_week?
+ Date.new(2012,1,9).second_week?
  => true
     
-It returns true if date lies in last week of month, else false.
+ It returns true if date lies in last week of month, else false.
   
-Date.new(2012,1,31).last_week?
- => true
+ Date.new(2012,1,31).last_week?
+  => true
   
-It returns total number of weeks in month.
+ It returns total number of weeks in month.
   
-Date.new(2012,1,31).total_weeks
- => 5
+ Date.new(2012,1,31).total_weeks
+  => 5
   
-It returns month's week in which the date lies
+ It returns month's week in which the date lies
    
-Date.new(2012,1,31).week_of_month_in_eng
+ Date.new(2012,1,31).week_of_month_in_eng
  => "Fifth"
    
 == Tools Being Used
