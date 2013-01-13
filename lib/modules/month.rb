@@ -74,7 +74,7 @@ module WeekOfMonth
     # Date.new(2012,11,1).all_mondays_in_month
     #   => [5, 12, 19, 26]
     # @return [Array]
-    Date::DAYNAMES.each_with_index do |day_name, i|
+    DAYS_IN_SEQUENCE.each_with_index do |day_name, i|
       method_name = "all_#{day_name.downcase}s_in_month".to_sym
       define_method(method_name) do
         week_split.map{|d| d[i] }.compact

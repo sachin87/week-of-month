@@ -120,50 +120,50 @@ class TestMonth < Test::Unit::TestCase
     
   def test_all_sundays_in_month
     [Date,Time].each do |klass|
-      assert_equal [2, 9, 16, 23, 30], klass.new(2012,12,1).all_sundays_in_month
-      assert_equal [7, 14, 21, 28], klass.new(2012,10,1).all_sundays_in_month
+      assert_equal [6, 13, 20, 27], klass.new(2013,1,1).all_sundays_in_month
+      assert_equal [3, 10, 17, 24], klass.new(2013,2,1).all_sundays_in_month
     end
   end
   
   def test_all_mondays_in_month
     [Date,Time].each do |klass|
-      assert_equal [3, 10, 17, 24, 31], klass.new(2012,12,1).all_mondays_in_month
-      assert_equal [1, 8, 15, 22, 29], klass.new(2012,10,1).all_mondays_in_month
+      assert_equal [7, 14, 21, 28], klass.new(2013,1,1).all_mondays_in_month
+      assert_equal [4, 11, 18, 25], klass.new(2013,2,1).all_mondays_in_month
     end
   end
   
   def test_all_tuesdays_in_month
     [Date,Time].each do |klass|
-      assert_equal [4, 11, 18, 25], klass.new(2012,12,1).all_tuesdays_in_month
-      assert_equal [2, 9, 16, 23, 30], klass.new(2012,10,1).all_tuesdays_in_month
+      assert_equal [1, 8, 15, 22, 29], klass.new(2013,1,1).all_tuesdays_in_month
+      assert_equal [5, 12, 19, 26], klass.new(2013,2,1).all_tuesdays_in_month
     end
   end
 
   def test_all_wednesdays_in_month
     [Date,Time].each do |klass|
-      assert_equal [5, 12, 19, 26], klass.new(2012,12,1).all_wednesdays_in_month
-      assert_equal [3, 10, 17, 24, 31], klass.new(2012,10,1).all_wednesdays_in_month
+      assert_equal [2, 9, 16, 23, 30], klass.new(2013,1,1).all_wednesdays_in_month
+      assert_equal [6, 13, 20, 27], klass.new(2013,2,1).all_wednesdays_in_month
     end
   end
 
   def test_all_thursdays_in_month
     [Date,Time].each do |klass|
-      assert_equal [6, 13, 20, 27], klass.new(2012,12,1).all_thursdays_in_month
-      assert_equal [4, 11, 18, 25], klass.new(2012,10,1).all_thursdays_in_month
+      assert_equal [3, 10, 17, 24, 31], klass.new(2013,1,1).all_thursdays_in_month
+      assert_equal [7, 14, 21, 28], klass.new(2013,2,1).all_thursdays_in_month
     end
   end
     
   def test_all_fridays_in_month
     [Date,Time].each do |klass|
-      assert_equal [7, 14, 21, 28], klass.new(2012,12,1).all_fridays_in_month
-      assert_equal [5, 12, 19, 26], klass.new(2012,10,1).all_fridays_in_month
+      assert_equal [4, 11, 18, 25], klass.new(2013,1,1).all_fridays_in_month
+      assert_equal [1, 8, 15, 22], klass.new(2013,2,1).all_fridays_in_month
     end
   end
   
   def test_all_saturdays_in_month
     [Date,Time].each do |klass|
-      assert_equal [1, 8, 15, 22, 29], klass.new(2012,12,1).all_saturdays_in_month
-      assert_equal [6, 13, 20, 27], klass.new(2012,10,1).all_saturdays_in_month
+      assert_equal [5, 12, 19, 26], klass.new(2013,1,1).all_saturdays_in_month
+      assert_equal [2, 9, 16, 23], klass.new(2013,2,1).all_saturdays_in_month
     end
   end
   

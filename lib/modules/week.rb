@@ -19,8 +19,8 @@ module WeekOfMonth
       # Time.weeks_between_dates(Date.new(2012,1,1),Date.new(2012,1,15))
       #   => 2
       # @return [Fixnum]
-      def weeks_between_dates(date1,date2)
-        (date1.week_of_month - date2.week_of_month).abs
+      def weeks_between_dates(to,from)
+        (from.week_of_month - to.week_of_month).abs
       end
     end
     
@@ -110,17 +110,17 @@ module WeekOfMonth
     
     # it returns days past in the week
     # Date.new(2012,11,15).days_past_in_week
-    #   => 3
+    #   => 4
     # Time.new(2012,11,30).days_past_in_week
     #   => 5
     # @return [Fixnum] 
     def days_past_in_week
-      self.week_of_month
+      self.to_date.cwday
     end
     
     # it returns days left in the week
     # Date.new(2012,11,15).days_left_in_week
-    #   => 4
+    #   => 3
     # Time.new(2012,11,30).days_left_in_week
     #   => 2
     # @return [Fixnum]
@@ -135,7 +135,7 @@ module WeekOfMonth
     #   => 2012-11-29 23:59:55 +0530
     # @return [Date || Time] 
     def beginning_of_week
-      self - days_past_in_week
+      self.class.new(year,month,current_week.detect {|i| !i.nil?})
     end
     
     # it returns date of the last day(saturday) of the week
@@ -145,7 +145,11 @@ module WeekOfMonth
     #   => 2012-11-30 00:00:02 +0530
     # @return [Date || Time] 
     def end_of_week
-      self + days_left_in_week
+      if current_week.size > 7
+        self.class.new(year,month,current_week.last)
+      else
+        
+      end
     end
     
     # it returns date of the next week day.
@@ -155,7 +159,11 @@ module WeekOfMonth
     #   => 2012-11-30 00:00:07 +0530
     # @return [Date || Time] 
     def next_week
-      self + 7
+      if self.class == Date
+        self + 7 
+      elsif self.class == Time
+        self + (60 * 60 * 24 * 7)
+      end
     end
     
     # it returns date of the previous week day.
@@ -165,7 +173,19 @@ module WeekOfMonth
     #   => 2012-11-29 23:59:53 +0530
     # @return [Date || Time] 
     def previous_week
-      self - 7
+      if self.class == Date
+        self - 7 
+      elsif self.class == Time
+        self - (60 * 60 * 24 * 7)
+      end
+    end
+    
+    # it returns array of days in current week.
+    # Date.new(2013,1,13).current_week
+    # => [7, 8, 9, 10, 11, 12, 13]
+    # @return [Array]    
+    def current_week
+      week_split.select{|c| c.include?((self.day))}.flatten
     end
     
   end

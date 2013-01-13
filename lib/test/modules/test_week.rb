@@ -8,49 +8,49 @@ class TestWeek < Test::Unit::TestCase
   
    def test_week_of_month
     [Date,Time].each do |klass| 
-      assert_equal 5, klass.new(2012,1,31).week_of_month
+      assert_equal 5, klass.new(2013,1,31).week_of_month
        
-      assert_equal 5, klass.new(2012,2,29).week_of_month
+      assert_equal 5, klass.new(2013,2,29).week_of_month
        
-      assert_equal 5, klass.new(2012,3,31).week_of_month
+      assert_equal 5, klass.new(2013,3,31).week_of_month
        
-      assert_equal 5, klass.new(2012,4,30).week_of_month
+      assert_equal 5, klass.new(2013,4,30).week_of_month
        
-      assert_equal 5, klass.new(2012,5,31).week_of_month
+      assert_equal 5, klass.new(2013,5,31).week_of_month
        
-      assert_equal 5, klass.new(2012,6,30).week_of_month
+      assert_equal 5, klass.new(2013,6,30).week_of_month
        
-      assert_equal 5, klass.new(2012,7,31).week_of_month
+      assert_equal 5, klass.new(2013,7,31).week_of_month
       
-      assert_equal 5, klass.new(2012,8,31).week_of_month
+      assert_equal 5, klass.new(2013,8,31).week_of_month
        
-      assert_equal 6, klass.new(2012,9,30).week_of_month 
+      assert_equal 6, klass.new(2013,9,30).week_of_month 
        
-      assert_equal 5, klass.new(2012,10,31).week_of_month
+      assert_equal 5, klass.new(2013,10,31).week_of_month
        
-      assert_equal 5, klass.new(2012,11,30).week_of_month
+      assert_equal 5, klass.new(2013,11,30).week_of_month
   
-      assert_equal 6, klass.new(2012,12,31).week_of_month
+      assert_equal 6, klass.new(2013,12,31).week_of_month
     end
   end
     
   def test_week_split
     [Date,Time].each do |klass|
-      object = klass.new(2012,1,10)
-      split_for_january = [[1, 2, 3, 4, 5, 6, 7],
-                           [8, 9, 10, 11, 12, 13, 14],
-                           [15, 16, 17, 18, 19, 20, 21],
-                           [22, 23, 24, 25, 26, 27, 28],
-                           [29, 30, 31]]
+      object = klass.new(2013,1,10)
+      split_for_january = [[nil, 1, 2, 3, 4, 5, 6],
+                             [7, 8, 9, 10, 11, 12, 13],
+                             [14, 15, 16, 17, 18, 19, 20],
+                             [21, 22, 23, 24, 25, 26, 27],
+                             [28, 29, 30, 31]]
       assert_kind_of Array,object.week_split
       assert_equal split_for_january, object.week_split
     
-      object = Date.new(2012,10,15)
-      split_for_october = [[nil, 1, 2, 3, 4, 5, 6],
-                           [7, 8, 9, 10, 11, 12, 13],
-                           [14, 15, 16, 17, 18, 19, 20],
-                           [21, 22, 23, 24, 25, 26, 27],
-                           [28, 29, 30, 31]]
+      object = Date.new(2013,2,15)
+      split_for_october = [[nil, nil, nil, nil, 1, 2, 3],
+                           [4, 5, 6, 7, 8, 9, 10],
+                           [11, 12, 13, 14, 15, 16, 17],
+                           [18, 19, 20, 21, 22, 23, 24],
+                           [25, 26, 27, 28]]
       assert_kind_of Array,object.week_split
       assert_equal split_for_october, object.week_split
     end
@@ -148,25 +148,25 @@ class TestWeek < Test::Unit::TestCase
   
    def test_weeks_between_dates
     [Date,Time].each do |klass|
-      assert_equal 3, klass.test_weeks_between_dates(Date.new(2015,11,1),Date.new(2012,11,15))
+      assert_equal 3, klass.weeks_between_dates(Date.new(2015,11,1),Date.new(2012,11,15))
     end
   end
   
     def test_days_past_in_week
       [Date,Time].each do |klass|
-        assert_equal 3, klass.new(2012,12,1).test_days_past_in_week
+        assert_equal 2, klass.new(2013,1,1).days_past_in_week
       end
     end
     
     def test_days_left_in_week
       [Date,Time].each do |klass|
-        assert_equal 3, klass.new(2012,12,1).days_left_in_week
+        assert_equal 5, klass.new(2013,1,1).days_left_in_week
       end
     end
     
     def test_beginning_of_week
       [Date,Time].each do |klass|
-        assert_equal 3, klass.new(2012,12,1).beginning_of_week
+        assert_equal 3, klass.new(2012,11,26).beginning_of_week
       end
     end
     
@@ -178,13 +178,13 @@ class TestWeek < Test::Unit::TestCase
     
     def test_next_week
       [Date,Time].each do |klass|
-        assert_equal 3, klass.new(2012,12,1).next_week
+        assert_equal klass.new(2012,12,8), klass.new(2012,12,1).next_week
       end
     end
     
     def test_previous_week
       [Date,Time].each do |klass|
-        assert_equal 3, klass.new(2012,12,1).previous_week
+        assert_equal klass.new(2012,11,24), klass.new(2012,12,1).previous_week
       end
     end
   
