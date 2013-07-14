@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'week_of_month'
-  s.version     = '1.2.1'
+  s.version     = '1.2.2'
   s.date        = '2012-10-08'
   s.summary     = "Week Of Month!"
   s.description = "Its gives you week_of_month method on date and time objects, that returns week of the month."
