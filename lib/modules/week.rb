@@ -6,24 +6,7 @@ module WeekOfMonth
   module Week
 
     include WeekOfMonth::Constant
-    
-    def self.included(klass)
-      klass.extend(ClassMethods)
-    end
-    
-    module ClassMethods
-      # @param[Date,Date]
-      # Date.weeks_between_dates(Date.new(2012,1,1),Date.new(2012,1,15))
-      #   => 2
-      # @param[Time,Time]
-      # Time.weeks_between_dates(Date.new(2012,1,1),Date.new(2012,1,15))
-      #   => 2
-      # @return [Fixnum]
-      def weeks_between_dates(to,from)
-        (from.week_of_month - to.week_of_month).abs
-      end
-    end
-    
+
     # returns week of month for a given date
     # Date.new(2012,11,15).week_of_month
     #   => 3
@@ -145,10 +128,14 @@ module WeekOfMonth
     #   => 2012-11-30 00:00:02 +0530
     # @return [Date || Time] 
     def end_of_week
-      if current_week.size > 7
+      if current_week.index(self.day) == 6
         self.class.new(year,month,current_week.last)
-      else
-        
+      elsif current_week.index(self.day) < 6
+        if self.class == Date
+          self +  (6 -  current_week.index(self.day))
+        elsif self.class == Time
+          self +  (60 * 60 * 24  * (6 -  current_week.index(self.day)))
+        end
       end
     end
     

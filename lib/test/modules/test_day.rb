@@ -9,7 +9,7 @@ class TestDay < Test::Unit::TestCase
   def test_days_array
     [Date,Time].each do |klass|
       object = klass.new(2012,2,8)
-      days_array_for_february =  [nil, nil, 1, 2, 3, 4, 5,
+      days_array_for_february =  [nil, nil, nil,1, 2, 3, 4, 5,
                                   6, 7, 8, 9, 10, 11, 12, 13, 14,
                                   15, 16, 17, 18, 19, 20, 21, 22,
                                   23, 24, 25, 26, 27, 28, 29]
@@ -17,8 +17,7 @@ class TestDay < Test::Unit::TestCase
       assert_equal days_array_for_february, object.days_array
 
       object = klass.new(2012,7,1)
-      days_array_for_july = [nil, nil, nil, nil, nil, nil,
-                             1, 2, 3, 4, 5, 6, 7,
+      days_array_for_july = [ 1, 2, 3, 4, 5, 6, 7,
                              8, 9, 10, 11, 12, 13,
                              14, 15, 16, 17, 18, 19,
                              20, 21, 22, 23, 24, 25,
@@ -49,6 +48,9 @@ class TestDay < Test::Unit::TestCase
   def test_upcoming_sunday
     [Date,Time].each do |klass|
       assert_equal klass.new(2013,1,6), klass.new(2013,1,1).upcoming_sunday
+      assert_equal klass.new(2013,1,6), klass.new(2013,1,5).upcoming_sunday
+      assert_equal klass.new(2013,1,13), klass.new(2013,1,7).upcoming_sunday
+      assert_equal klass.new(2013,1,6), klass.new(2012,12,30).upcoming_sunday
     end
   end
 

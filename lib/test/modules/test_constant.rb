@@ -54,8 +54,8 @@ class TestConstant < Test::Unit::TestCase
                      :august => 31, :september => 30, :october => 31, 
                      :november => 30, :december => 31 }, klass::MONTH_WITH_DAY)
                      
-      assert_equal([ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-                     "Saturday", "Sunday"], klass::DAYS_IN_SEQUENCE)
+      assert_equal(["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+                     "Friday", "Saturday"], klass::DAYS_IN_SEQUENCE)
     end
   end
     
