@@ -5,33 +5,14 @@
 
 module WeekOfMonth
   module Day
-    
-    def self.included(klass)
-      klass.extend(ClassMethods)
-    end
-    
-    module ClassMethods
-      
-      # @param[Date,Date]
-      # Date.days_between_dates(Date.new(2012,11,1),Date.new(2012,11,15))
-      #   => 14
-      # @param[Time,Time]
-      # Time.days_between_dates(Time.new(2012,11,1),Time.new(2012,11,15))
-      #   => 14
-      # @return [Fixnum]
-      def days_between_dates(date1,date2)
-        (date1.day - date2.day).abs
-      end
-      
-    end
-    
+
     # gives array of days in month
     # Date.new(2012,1,1).days_array
-    #   => [nil, nil, nil, nil, nil, nil,
-    #        1, 2, 3, 4, 5, 6, 7, 8, 9, 
+    #   => [ 1, 2, 3, 4, 5, 6, 7, 8, 9,
     #        10, 11, 12, 13, 14, 15, 16,
     #        17, 18, 19, 20, 21, 22, 23,
-    #        24, 25, 26, 27, 28, 29, 30]
+    #        24, 25, 26, 27, 28, 29, 30,
+    #        31]
     # @return [Array]
     def days_array
       day = self.beginning_of_month.to_date.wday

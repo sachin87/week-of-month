@@ -183,11 +183,5 @@ class TestMonth < Test::Unit::TestCase
       assert_equal "December", klass.new(2012,12,1).name_of_month
     end
   end
-  
-  def test_month_between_dates
-    [Date,Time].each do |klass|
-      assert_equal 9, klass.months_between_dates(klass.new(2012,10,1),klass.new(2012,1,1))
-    end
-  end
-  
+
 end

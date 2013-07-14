@@ -39,12 +39,6 @@ class TestDay < Test::Unit::TestCase
     end
   end
 
-  def test_days_between_dates
-    [Date,Time].each do |klass|
-      assert_equal 16, klass.days_between_dates(klass.new(2012,12,1),klass.new(2012,12,17))
-    end
-  end
-
   def test_upcoming_sunday
     [Date,Time].each do |klass|
       assert_equal klass.new(2013,1,6), klass.new(2013,1,1).upcoming_sunday

@@ -6,24 +6,7 @@ module WeekOfMonth
   module Month
 
     include WeekOfMonth::Constant
-    
-    def self.included(klass)
-      klass.extend(ClassMethods)
-    end
-    
-    module ClassMethods
-      # @param[Date,Date]
-      # Date.months_between_dates(Date.new(2012,11,1),Date.new(2012,1,15))
-      #   => 10
-      # @param[Time,Time]
-      # Time.months_between_dates(Time.new(2012,11,1),Time.new(2012,1,15))
-      #   => 10
-      # @return [Fixnum]
-      def months_between_dates(date1,date2)
-        (date1.month - date2.month).abs
-      end
-    end
-    
+
     # this code generates method named like january?..december?
     # to check whether a month is january or march? etc.
     # @return [Boolean]
