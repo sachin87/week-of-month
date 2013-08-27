@@ -84,10 +84,9 @@ module WeekOfMonth
     # Date.new(2012,11,30).week_of_month_in_fr
     #   => "Cinquième"
     # @return [String] 
-    ['eng', 'fr', 'ger', 'jap'].each do |lang|
-      method_name = "week_of_month_in_#{lang}"
-      define_method(method_name) do
-        eval "WEEK_IN_#{lang.upcase}[week_of_month]"
+    constants.select{|x| x.to_s.match("WEEK_OF_MONTH_IN_")}.each do |const|
+      define_method(const.to_s.downcase) do
+        eval "#{const.to_s}[week_of_month]"
       end
     end
     

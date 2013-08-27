@@ -8,17 +8,19 @@ class TestConstant < Test::Unit::TestCase
   
   def test_constants_present?
     [Date,Time].each do |klass|
-      assert klass::WEEK_IN_ENG
+      assert klass::WEEK_OF_MONTH_IN_ENG
     
-      assert klass::WEEK_IN_GER
+      assert klass::WEEK_OF_MONTH_IN_GER
     
-      assert klass::WEEK_IN_FR
+      assert klass::WEEK_OF_MONTH_IN_FR
     
-      assert klass::WEEK_IN_JAP
+      assert klass::WEEK_OF_MONTH_IN_JAP
     
       assert klass::MONTH_WITH_DAY
     
       assert klass::MONTH_WITH_SEQUENCE
+
+      assert klass::DAYS_IN_SEQUENCE
     end
   end
   
@@ -27,22 +29,22 @@ class TestConstant < Test::Unit::TestCase
       assert_equal({ 1 => 'First', 2 => 'Second',
                      3 => 'Third', 4 => 'Fourth',
                      5 => 'Fifth', 6 => 'Sixth',
-                     7 =>"Seventh" }, klass::WEEK_IN_ENG)
+                     7 =>"Seventh" }, klass::WEEK_OF_MONTH_IN_ENG)
                    
       assert_equal({ 1 => 'First', 2 => 'Second',
                      3 => 'Third', 4 => 'Quatrième',
                      5 => 'Cinquième', 6 => 'sixième',
-                     7 => "septième" }, klass::WEEK_IN_FR)
+                     7 => "septième" }, klass::WEEK_OF_MONTH_IN_FR)
                    
       assert_equal({ 1 => 'First', 2 => 'Second',
                      3 => 'Dritten', 4 => 'Vierte',
                      5 => 'Fünfte', 6 => 'Sechste',
-                     7 => "siebte" }, klass::WEEK_IN_GER)
+                     7 => "siebte" }, klass::WEEK_OF_MONTH_IN_GER)
                    
       assert_equal({ 1=>'最初', 2 =>'秒',
                                           3 =>'サード', 4=> '第4回',
                      5 =>'第五', 6=> 'シックス' ,
-                     7 => "第7" } ,  klass::WEEK_IN_JAP)
+                     7 => "第7" } ,  klass::WEEK_OF_MONTH_IN_JAP)
                    
       assert_equal({ :january => 1, :february => 2, :march => 3, 
                      :april => 4, :may => 5, :june => 6, :july => 7, 
