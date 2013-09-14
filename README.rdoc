@@ -11,6 +11,8 @@ or Rails application. To install, simply add the following to your Gemfile:
 
   gem 'week_of_month'
   
+Run bundle install and don't forget to restart your server after you install a new gem.
+  
 == Usage
              
  It returns week split of that date's month
