@@ -11,7 +11,7 @@ or Rails application. To install, simply add the following to your Gemfile:
 
   gem 'week_of_month'
   
-Don't forget to restart your server after you install a new gem.
+Run bundle install and don't forget to restart your server after you install a new gem.
   
 == Usage
              
