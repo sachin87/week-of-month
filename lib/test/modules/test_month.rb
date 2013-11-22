@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 require 'test/unit'
-require_relative '../../week_of_month'
+RUBY_VERSION < '1.9' ? require('lib/week_of_month') : require_relative('../../week_of_month')
 
 class TestMonth < Test::Unit::TestCase
   
@@ -24,7 +24,7 @@ class TestMonth < Test::Unit::TestCase
     
       assert klass.new(2012,8,1).august?
      
-      assert klass.new(2012,9,1).september? 
+      assert klass.new(2012,9,1).september?
      
       assert klass.new(2012,10,1).october?
      

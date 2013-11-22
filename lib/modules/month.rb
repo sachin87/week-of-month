@@ -1,6 +1,6 @@
 # @author Sachion Singh 
 
-require_relative 'constant'
+RUBY_VERSION < '1.9' ? require('modules/constant') : require_relative('constant')
 
 module WeekOfMonth
   module Month

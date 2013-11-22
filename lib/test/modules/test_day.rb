@@ -3,12 +3,13 @@
 
 require 'test/unit'
 
-require_relative '../../week_of_month'
+RUBY_VERSION < '1.9' ? require('lib/week_of_month') : require_relative('../../week_of_month')
 class TestDay < Test::Unit::TestCase
-  
+
   def test_days_array
     [Date,Time].each do |klass|
       object = klass.new(2012,2,8)
+
       days_array_for_february =  [nil, nil, nil,1, 2, 3, 4, 5,
                                   6, 7, 8, 9, 10, 11, 12, 13, 14,
                                   15, 16, 17, 18, 19, 20, 21, 22,
