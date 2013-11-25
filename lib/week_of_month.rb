@@ -40,8 +40,8 @@ class Time
   end
 
   if RUBY_VERSION < '1.9'
-    def self.new(year, month, day)
-      Time.local(year, month, day)
+    def self.new(year=Time.now.year, month=Time.now.month, day=Time.now.day, hour=Time.now.hour, min=Time.now.min, sec=Time.now.sec, millisecond=(Time.now.to_f * 1000.0).to_i)
+      Time.local(year, month, day, hour, min, sec, millisecond)
     end
   end
 
