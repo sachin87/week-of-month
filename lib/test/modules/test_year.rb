@@ -4,7 +4,7 @@
 # @author Sachin Singh
 
 require 'test/unit'
-require_relative '../../week_of_month'
+RUBY_VERSION < '1.9' ? require('lib/week_of_month') : require_relative('../../week_of_month')
 
 class TestYear < Test::Unit::TestCase
   
