@@ -16,6 +16,30 @@ module WeekOfMonth
         return (i + 1) if o.include?(self.day)
       end
     end
+
+    # November week_split would like this
+    # [[nil, nil, nil, nil, nil, 1, 2],
+    #  [3, 4, 5, 6, 7, 8, 9],
+    #  [10, 11, 12, 13, 14, 15, 16],
+    #  [17, 18, 19, 20, 21, 22, 23],
+    #  [24, 25, 26, 27, 28, 29, 30]]
+    #
+    # The First Day of week decide its month of week.
+    # The W1 Nov should be Nov 3 - Nov 9
+    #
+    # Date.new(2012,11,15).general_week_of_month
+    #   => 2
+    #
+    # Date.new(2013,11,3).general_week_of_month
+    #   => 1
+    # @return [Fixnum]
+    def general_week_of_month
+      if week_split.first.first.nil?
+        week_of_month - 1
+      else
+        week_of_month
+      end
+    end
     
     # checks whether the given day lies in first week of month
     # Date.new(2012,11,1).first_week?

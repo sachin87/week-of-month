@@ -34,7 +34,35 @@ class TestWeek < Test::Unit::TestCase
       assert_equal 5, klass.new(2013,12,31).week_of_month
     end
   end
-    
+
+   def test_general_week_of_month
+    [Date,Time].each do |klass|
+      assert_equal 4, klass.new(2013,1,31).general_week_of_month
+
+      assert_equal 4, klass.new(2013,2,28).general_week_of_month
+
+      assert_equal 5, klass.new(2013,3,31).general_week_of_month
+
+      assert_equal 4, klass.new(2013,4,30).general_week_of_month
+
+      assert_equal 4, klass.new(2013,5,31).general_week_of_month
+
+      assert_equal 5, klass.new(2013,6,30).general_week_of_month
+
+      assert_equal 4, klass.new(2013,7,31).general_week_of_month
+
+      assert_equal 4, klass.new(2013,8,31).general_week_of_month
+
+      assert_equal 5, klass.new(2013,9,30).general_week_of_month
+
+      assert_equal 4, klass.new(2013,10,31).general_week_of_month
+
+      assert_equal 4, klass.new(2013,11,30).general_week_of_month
+
+      assert_equal 5, klass.new(2013,12,31).general_week_of_month
+    end
+  end
+
   def test_week_split
     [Date,Time].each do |klass|
       object = klass.new(2013,1,10)
