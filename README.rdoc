@@ -27,33 +27,27 @@ Run bundle install and don't forget to restart your server after you install a n
   
  It returns month's week in which the date lies
     
- Date.new(2012,1,1).week_of_month
- => 1
+ Date.new(2012,1,1).week_of_month => 1
 
  It return true if date lies in first week of month, else false.
        
- Date.new(2012,1,1).first_week?
- => true
+ Date.new(2012,1,1).first_week? => true
    
  It returns true if date lies in second week of month, else false.
    
- Date.new(2012,1,9).second_week?
- => true
+ Date.new(2012,1,9).second_week? => true
     
  It returns true if date lies in last week of month, else false.
   
- Date.new(2012,1,31).last_week?
-  => true
+ Date.new(2012,1,31).last_week? => true
   
  It returns total number of weeks in month.
   
- Date.new(2012,1,31).total_weeks
-  => 5
+ Date.new(2012,1,31).total_weeks => 5
   
  It returns month's week in which the date lies
    
- Date.new(2012,1,31).week_of_month_in_eng
- => "Fifth"
+ Date.new(2012,1,31).week_of_month_in_eng => "Fifth"
    
 == Tools Being Used
 
@@ -89,25 +83,6 @@ august?, september?, october?, november?, december?, last_day_of_month
 
   Fork, fix, then send me a pull request.
   
-== Copyright
+## License
 
-(The MIT License)
-
-Copyright (c) 2012-2013 Sachin Singh. See LICENSE for details.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy 
-of this software and associated documentation files (the ‘Software’), to deal 
-in the Software without restriction, including without limitation the rights 
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all 
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
-PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION 
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+use MIT license.
