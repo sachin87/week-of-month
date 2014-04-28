@@ -12,5 +12,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (>= 1.0)
   rake (>= 10.1.0)
   week_of_month!
