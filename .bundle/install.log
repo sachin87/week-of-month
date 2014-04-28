@@ -1,0 +1,4 @@
+# Logfile created on 2014-04-28 22:41:29 +0530 by logger.rb/36483
+I, [2014-04-28T22:41:29.237110 #16389]  INFO -- : 0:  rake (10.1.0) from /home/sachin/.rvm/gems/ruby-2.0.0-p247@global/specifications/rake-10.1.0.gemspec
+I, [2014-04-28T22:41:29.266843 #16389]  INFO -- : 0:  week_of_month (1.2.3.1) from /home/sachin/projects/week-of-month/week_of_month.gemspec
+I, [2014-04-28T22:41:29.267622 #16389]  INFO -- : 0:  bundler (1.5.0) from /home/sachin/.rvm/gems/ruby-2.0.0-p247@todo/specifications/bundler-1.5.0.gemspec
