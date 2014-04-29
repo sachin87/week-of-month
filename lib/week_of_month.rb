@@ -1,10 +1,14 @@
 require 'date'
 require 'time'
 
-RUBY_VERSION < '1.9' ? require('modules/day')   : require_relative('modules/day')
-RUBY_VERSION < '1.9' ? require('modules/month') : require_relative('modules/month')
-RUBY_VERSION < '1.9' ? require('modules/week')  : require_relative('modules/week')
-RUBY_VERSION < '1.9' ? require('modules/year')  : require_relative('modules/year')
+def require_file file_name
+  RUBY_VERSION < '1.9' ? require(file_name) : require_relative(file_name)
+end
+
+require_file 'modules/day'
+require_file 'modules/month'
+require_file 'modules/week'
+require_file 'modules/year'
 
 class Date
   include WeekOfMonth::Day
