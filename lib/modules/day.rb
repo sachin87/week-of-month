@@ -29,7 +29,7 @@ module WeekOfMonth
       self.class.new(year,month,day).strftime('%A')
     end
       
-    # this code generates method names like 'upcomong_monday' and 'previous_monday'
+    # this code generates method names like 'upcoming_monday' and 'previous_monday'
     # Date.new(2013,1,1).upcoming_monday
     # => #<Date: 2013-01-07 ((2456300j,0s,0n),+0s,2299161j)>
     # Date.new(2013,1,1).previous_monday
