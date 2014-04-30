@@ -83,6 +83,6 @@ august?, september?, october?, november?, december?, last_day_of_month
 
   Fork, fix, then send me a pull request.
   
-## License
+== License
 
-use MIT license.
+:include: license
