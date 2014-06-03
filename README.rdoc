@@ -1,4 +1,4 @@
-= Week Of Month
+= Week of month
 
 Week Of Month is a library which gives you week_of_month method on Date and Time 
 class object, that returns week of the month. It basically extends the Date and Time
@@ -51,7 +51,7 @@ Run bundle install and don't forget to restart your server after you install a n
    
 == Tools Being Used
 
-We believe strongly in not writing code unless we have to, so Week Of Month is built using
+We believe strongly in not writing code unless we have to, so Week of month is built using
 
 Ruby Date Class
     
@@ -79,10 +79,10 @@ Methods Added
 january?, february?, march?, april?, may?, june?, july?,
 august?, september?, october?, november?, december?, last_day_of_month
   
-== Contributing to Week Of Month
+== Contributing to Week of month
 
   Fork, fix, then send me a pull request.
   
 == License
 
-:include:license
+MIT
