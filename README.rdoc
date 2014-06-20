@@ -1,5 +1,7 @@
 = Week of month
 
+{<img src="https://badge.fury.io/rb/week_of_month.svg" alt="Gem Version" />}[http://badge.fury.io/rb/week_of_month]
+
 Week of month is a library which gives you week_of_month method on Date and Time
 class object, that returns week of the month. It basically extends the Date and Time
 class with several useful date helpers.
