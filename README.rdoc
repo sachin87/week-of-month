@@ -2,6 +2,7 @@
 
 {<img src="https://badge.fury.io/rb/week_of_month.svg" alt="Gem Version" />}[http://badge.fury.io/rb/week_of_month]
 {<img src="https://codeclimate.com/github/sachin87/week-of-month.png" />}[https://codeclimate.com/github/sachin87/week-of-month]
+{<img src="http://img.shields.io/license/MIT.png?color=green" />}[http://opensource.org/licenses/MI]
 
 Week of month is a library which gives you week_of_month method on Date and Time
 class object, that returns week of the month. It basically extends the Date and Time
