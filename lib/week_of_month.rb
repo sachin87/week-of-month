@@ -68,3 +68,19 @@ class Hash
   end
 end
 
+module WeekOfMonth
+
+  def self.first_day=val
+    @first_day = DAYS_IN_SEQUENCE[val]
+  end
+
+  def self.first_day
+    @first_day ||= 0
+  end
+
+  def self.configure
+     yield
+  end
+
+end
+
