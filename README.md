@@ -74,6 +74,15 @@ Date.new(2012,1,9).second_week?
 Date.new(2012,1,31).last_week? 
 # => true
 ```
+
+**Returns the month for the specified date.**
+
+```ruby
+Date.new(2012,1,1).name_of_month
+# => "January"
+
+```
+
 **Return true if date lies in the month of which the method is called, otherwise false will be returned (works for all months).**
 
 ```ruby
@@ -96,6 +105,43 @@ Date.new(2012,1,1).last_day_of_month
 Date.new(2012,2,9).last_day_of_month
 # => 29 
 ```
+
+**Return the dates for which the day of the method falls (works for all days).**
+
+```ruby
+Date.new(2012,1,1).all_mondays_in_month
+# => [2, 9, 16, 23, 30] 
+```
+
+**Return the day of the week for the specified date.**
+
+```ruby
+Date.new(2012,1,1).name_of_week_day
+# => "Sunday"
+```
+
+**Returns true if date falls on Monday through Friday, else returns false.**
+
+```ruby
+Date.new(2012,1,1).working_day?
+# => false
+
+Date.new(2012,2,3).working_day?
+# => true
+```
+
+**Returns true if date falls on Saturday or Sunday, else returns false.**
+
+```ruby
+Date.new(2012,1,1).week_end?
+# => true
+
+Date.new(2012,2,3).week_end?
+# => false
+```
+
+
+
 
 
 ## Tools Being Used
