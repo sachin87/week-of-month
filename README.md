@@ -1,12 +1,12 @@
 # Week of month
 
-{<img src="https://badge.fury.io/rb/week_of_month.svg" alt="Gem Version" />}[http://badge.fury.io/rb/week_of_month]
-{<img src="https://codeclimate.com/github/sachin87/week-of-month.png" />}[https://codeclimate.com/github/sachin87/week-of-month]
-(http://img.shields.io/license/MIT.png?color=green)[license]
+[![Gem Version](https://badge.fury.io/rb/week_of_month.svg)][gem]
+[![Climate](https://codeclimate.com/github/sachin87/week-of-month.png)][climate]
+[![License](http://img.shields.io/license/MIT.png?color=green)][license]
 
-[gem]:
-[climate]: 
-[license]: http://opensource.org/licenses/MI
+[gem]: http://badge.fury.io/rb/week_of_month
+[climate]: https://codeclimate.com/github/sachin87/week-of-month
+[license]: http://opensource.org/licenses/MI 
 
 Week of month is a library which gives you week_of_month method on Date and Time
 class object, that returns week of the month. It basically extends the Date and Time
