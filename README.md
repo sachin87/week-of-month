@@ -74,6 +74,29 @@ Date.new(2012,1,9).second_week?
 Date.new(2012,1,31).last_week? 
 # => true
 ```
+**Return true if date lies in the month of which the method is called, otherwise false will be returned (works for all months).**
+
+```ruby
+Date.new(2012,1,1).january?
+# => true 
+
+Date.new(2012,1,9).august?
+# => false 
+
+Date.new(2012,12,25).december? 
+# => true
+```
+
+**Return the number of days in a given month (regardless of selected day).**
+
+```ruby
+Date.new(2012,1,1).last_day_of_month
+# => 31 
+
+Date.new(2012,2,9).last_day_of_month
+# => 29 
+```
+
 
 ## Tools Being Used
 
@@ -85,22 +108,22 @@ Ruby Time Class
 
 ## Version History
 
-**1.2.1**
+###1.2.1
 
 Support for Time class
 
-Methods Added
+**Methods Added:**
 
 name_of_week_day, name_of_month, week_end?, working_day?,
 all_sundays_in_month, all_mondays_in_month, all_tuesdays_in_month,
 all_wednesdays_in_month, all_thursdays_in_month, all_fridays_in_month,
 all_saturdays_in_month
 
-**1.1.0**
+###1.1.0
 
 ActiveSupport Dependency removed
 
-Methods Added
+**Methods Added:**
 
 january?, february?, march?, april?, may?, june?, july?,
 august?, september?, october?, november?, december?, last_day_of_month
