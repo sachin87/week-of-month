@@ -80,7 +80,6 @@ Date.new(2012,1,31).last_week?
 ```ruby
 Date.new(2012,1,1).name_of_month
 # => "January"
-
 ```
 
 **Return true if date lies in the month of which the method is called, otherwise false will be returned (works for all months).**
