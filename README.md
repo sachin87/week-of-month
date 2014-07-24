@@ -6,7 +6,7 @@
 
 [gem]: http://badge.fury.io/rb/week_of_month
 [climate]: https://codeclimate.com/github/sachin87/week-of-month
-[license]: http://opensource.org/licenses/MI 
+[license]: http://opensource.org/licenses/MIT 
 
 Week of month is a library which gives you week_of_month method on Date and Time
 class object, that returns week of the month. It basically extends the Date and Time
@@ -14,11 +14,11 @@ class with several useful date helpers.
 
 ## Assumption
 
-Sunday is the first day of week.
+Sunday is the first day of the week.
 
 ## Getting Started
 
-Week of month is released as a Ruby Gem. The gem is to be installed within a Ruby
+Week_of_month is released as a Ruby Gem. The gem is to be installed within a Ruby
 or Rails application. To install, simply add the following to your Gemfile:
 
 ```ruby
@@ -29,55 +29,45 @@ Run bundle install and don't forget to restart your server after you install a n
 
 ## Usage
 
-**Return the days of the month in concatted arrays as if they were displayed on a calendar. In this example, the first day of January starts on a Sunday. Note the format is (year, month, day)**
+Return the days of the month as if they were displayed on a calendar. In this example, the first day of January starts on a Sunday. Note the format is always (year, month, day)
 
 ```ruby
 Date.new(2012,1,1).week_split
 
-///
+=begin
     [[1, 2, 3, 4, 5, 6, 7],
 	[8, 9, 10, 11, 12, 13, 14], 
 	[15, 16, 17, 18, 19, 20, 21], 
 	[22, 23, 24, 25, 26, 27, 28], 
 	[29, 30, 31]]
-///
+=end
 ```
-**Return the total number of weeks in a month.**
+Return the total number of weeks in a month.
 
 ```ruby
 Date.new(2012,1,31).total_weeks
 # => 5 
 ```
 
-**Return what number week in the month a specific date lies. Note, format is still (year, month, day)**
+Return what number week in the month a specific date lies. Can also return the number in english.
 
 ```ruby
-Date.new(2012,1,20).week_of_month 
-# => 3
-```
+Date.new(2012,1,31).week_of_month 
+# => 5
 
-**Return the month's week in which the date lies in english.**
-
-```ruby
 Date.new(2012,1,31).week_of_month_in_eng
 # => "Fifth" 
 ```
 
-**It will return true if date lies in first week of month, otherwise false will be returned.**
+Return true if date lies in first week of month, otherwise false will be returned. Also works with second week and last week.
 
 ```ruby
 Date.new(2012,1,1).first_week?
 # => true 
-```
 
-**Similarly, it will return true if date lies in second week of month, otherwise false will be returned.**
-```ruby
 Date.new(2012,1,9).second_week?
 # => true 
-```
 
-**It will return true if the date lies in last week of month, otherwise false will be returned.**
-```ruby
 Date.new(2012,1,31).last_week? 
 # => true
 ```
