@@ -26,35 +26,39 @@ Run bundle install and don't forget to restart your server after you install a n
 ## Usage
 
 Return the days of the month in concatted arrays as if they were displayed on a calendar. In this example, the first day of January starts on a Sunday. Note the format is (year, month, day)
+
 ```ruby
 Date.new(2012,1,1).week_split
 
-[[1, 2, 3, 4, 5, 6, 7],
-[8, 9, 10, 11, 12, 13, 14], 
-[15, 16, 17, 18, 19, 20, 21], 
-[22, 23, 24, 25, 26, 27, 28], 
-[29, 30, 31]]
-
+# =>[[1, 2, 3, 4, 5, 6, 7],
+	[8, 9, 10, 11, 12, 13, 14], 
+	[15, 16, 17, 18, 19, 20, 21], 
+	[22, 23, 24, 25, 26, 27, 28], 
+	[29, 30, 31]]
 ```
 Return the total number of weeks in a month.
+
 ```ruby
 Date.new(2012,1,31).total_weeks
 # => 5 
 ```
 
 Return what number week in the month a specific date lies. Note, format is still (year, month, day)
+
 ```ruby
 Date.new(2012,1,20).week_of_month 
 # => 3
 ```
 
 Return the month's week in which the date lies in english.
+
 ```ruby
 Date.new(2012,1,31).week_of_month_in_eng
 # => "Fifth" 
 ```
 
 It will return true if date lies in first week of month, otherwise false will be returned.
+
 ```ruby
 Date.new(2012,1,1).first_week?
 # => true 
