@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.date          = '2014-04-27'
   s.summary       = 'Week Of Month!'
   s.description   = 'Its gives you week_of_month method on date and time objects, that returns week of the month.'
-  s.authors       = ['Sachin Singh']
+  s.authors       = ['Sachin Singh', 'Tommy']
   s.email         = ['sachin@railsdeveloper.in', 'sachin.y87@gmail.com', 'singhsachin87@yahoo.com']
   s.homepage      = 'https://github.com/sachin87/week-of-month'
   s.files         = `git ls-files`.split('\n').sort
