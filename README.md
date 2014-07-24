@@ -18,14 +18,18 @@ Sunday is the first day of the week.
 
 ## Getting Started
 
-Week_of_month is released as a Ruby Gem. The gem is to be installed within a Ruby
+Week of month is released as a Ruby Gem. The gem is to be installed within a Ruby
 or Rails application. To install, simply add the following to your Gemfile:
 
 ```ruby
 gem 'week_of_month'
 ```
 
-Run bundle install and don't forget to restart your server after you install a new gem.
+Run bundle install and don't forget to restart your server after you install a new gem. You can also install it yourself as: 
+
+```ruby
+gem install 'week_of_month'
+```
 
 ## Usage
 
@@ -74,7 +78,7 @@ Date.new(2012,1,31).last_week?
 
 ## Tools Being Used
 
-We believe strongly in not writing code unless we have to, so Week of month is built using
+We believe strongly in not writing code unless we have to, so Week of month is built using:
 
 Ruby Date Class
 
@@ -82,7 +86,7 @@ Ruby Time Class
 
 ## Version History
 
-1.2.1
+**1.2.1**
 
 Support for Time class
 
@@ -93,7 +97,7 @@ all_sundays_in_month, all_mondays_in_month, all_tuesdays_in_month,
 all_wednesdays_in_month, all_thursdays_in_month, all_fridays_in_month,
 all_saturdays_in_month
 
-1.1.0
+**1.1.0**
 
 ActiveSupport Dependency removed
 
