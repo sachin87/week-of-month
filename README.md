@@ -102,9 +102,9 @@ Date.new(2012,2,9).last_day_of_month
 
 We believe strongly in not writing code unless we have to, so Week of month is built using:
 
-Ruby Date Class
+* Ruby Date Class
 
-Ruby Time Class
+* Ruby Time Class
 
 ## Version History
 
