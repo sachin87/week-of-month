@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors       = ['Sachin Singh', 'Tommy']
   s.email         = ['sachin@railsdeveloper.in', 'sachin.y87@gmail.com', 'singhsachin87@yahoo.com']
   s.homepage      = 'https://github.com/sachin87/week-of-month'
-  s.files         = `git ls-files`.split('\n').sort
+  s.files         = `git ls-files`.split("\n").sort
   s.require_paths = ['lib']
   s.license       = 'MIT'
 
