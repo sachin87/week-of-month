@@ -18,11 +18,11 @@ module WeekOfMonth
     WEEK_OF_MONTH_IN_GER = { 1 => 'First', 2 => 'Second', 3 => 'Dritten',
                     4 => 'Vierte', 5 => 'Fünfte', 6 => 'Sechste', 7 => 'siebte'}
 
-    # hash containing japneese words from one to seven
+    # hash containing japanese words from one to seven
     WEEK_OF_MONTH_IN_JAP = { 1 => '最初', 2 => '秒', 3 => 'サード',
                     4 => '第4回', 5 => '第五', 6=> 'シックス', 7 =>  '第7' }
     
-    # hash containing month name with days in that month(in non leap yaer)
+    # hash containing month name with days in that month(in non leap year)
     MONTH_WITH_DAY = { :january => 31, :february => 28, :march => 31,
                        :april => 30, :may => 31, :june => 30, :july => 31,
                        :august => 31, :september => 30, :october => 31,
@@ -34,7 +34,7 @@ module WeekOfMonth
                             :august => 8, :september => 9, :october => 10,
                             :november => 11, :december => 12 }
    
-    # array of days names ordered starting with sunday and ending with saturday.
+    # array of ordered days names starting from sunday and ending with saturday.
     DAYS_IN_SEQUENCE = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
                          "Saturday"]
   end
