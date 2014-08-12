@@ -1,3 +1,5 @@
+# @author Sachin Singh
+
 require 'rake/testtask'
 require 'bundler/gem_tasks'
 

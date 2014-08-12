@@ -1,3 +1,5 @@
+# @author Sachin Singh
+
 require File.expand_path('../lib/modules/version', __FILE__)
 
 Gem::Specification.new do |s|
