@@ -3,8 +3,7 @@ require File.expand_path('../lib/modules/version', __FILE__)
 Gem::Specification.new do |s|
   s.name          = 'week_of_month'
   s.version       = WeekOfMonth::VERSION
-  s.date          = '2014-07-28'
-  s.summary       = 'Week Of Month!'
+  s.summary       = 'Week of month!'
   s.description   = 'Its gives you week_of_month method on date and time objects, that returns week of the month.'
   s.authors       = ['Sachin Singh', 'Tommy']
   s.email         = ['sachin@railsdeveloper.in', 'sachin.y87@gmail.com', 'singhsachin87@yahoo.com']
