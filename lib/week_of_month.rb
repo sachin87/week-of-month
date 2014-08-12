@@ -1,7 +1,7 @@
 require 'date'
 require 'time'
 
-def require_file file_name
+def require_file(file_name)
   RUBY_VERSION < '1.9' ? require(file_name) : require_relative(file_name)
 end
 
@@ -70,7 +70,7 @@ end
 
 module WeekOfMonth
 
-  def self.first_day=val
+  def self.first_day=(val)
     @first_day = DAYS_IN_SEQUENCE[val]
   end
 
