@@ -29,7 +29,7 @@ module WeekOfMonth
       self.class.new(year,month,day).strftime('%A')
     end
       
-    # this code generates method names like 'upcoming_monday' and 'previous_monday'
+    # this code generates methods with names like 'upcoming_monday' and 'previous_monday'
     # Date.new(2013,1,1).upcoming_monday
     # => #<Date: 2013-01-07 ((2456300j,0s,0n),+0s,2299161j)>
     # Date.new(2013,1,1).previous_monday
@@ -59,6 +59,48 @@ module WeekOfMonth
         end
       end
     end
-   
+
+    # gives last working/business day of the month
+    # Date.new(2014,12,1).last_business_day_of_month
+    # => #<Date: 2014-12-31 ((2457023j,0s,0n),+0s,2299161j)>
+    def last_business_day_of_month
+      all_working_days_of_month.first
+    end
+
+    # returns array of all working days of the month
+    # Date.new(2014,12,1).all_working_days_of_month
+    # => [#<Date: 2014-12-31 ((2457023j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-30 ((2457022j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-29 ((2457021j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-26 ((2457018j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-25 ((2457017j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-24 ((2457016j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-23 ((2457015j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-22 ((2457014j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-19 ((2457011j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-18 ((2457010j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-17 ((2457009j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-16 ((2457008j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-15 ((2457007j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-12 ((2457004j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-11 ((2457003j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-10 ((2457002j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-09 ((2457001j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-08 ((2457000j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-05 ((2456997j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-04 ((2456996j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-03 ((2456995j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-02 ((2456994j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-01 ((2456993j,0s,0n),+0s,2299161j)>]
+    def all_working_days_of_month
+      self.end_of_month.downto(beginning_of_month).select{|day| day.working_day? }
+    end
+
+    # returns array of all non working days of the month
+    # Date.new(2014,12,1).all_non_week_days_of_month
+    # => [#<Date: 2014-12-28 ((2457020j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-27 ((2457019j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-21 ((2457013j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-20 ((2457012j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-14 ((2457006j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-13 ((2457005j,0s,0n),+0s,2299161j)>,
+      # #<Date: 2014-12-07 ((2456999j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-06 ((2456998j,0s,0n),+0s,2299161j)>]
+    def all_non_week_days_of_month
+      self.end_of_month.downto(beginning_of_month).select{|day| day.week_end? }
+    end
+
+    # gives first working/business day of the month
+    # Date.new(2014,12,1).first_working_day_of_the_month
+    # => #<Date: 2014-12-01 ((2456993j,0s,0n),+0s,2299161j)>
+    def first_working_day_of_the_month
+      self.beginning_of_month.upto(end_of_month).find{|day| day.working_day? }
+    end
+
   end
 end
