@@ -4,8 +4,11 @@
 # @author Sachin Singh
 
 module WeekOfMonth
+  attr_accessor :config
+  def initialize(config = Configuration.new)
+    @config = config
+  end
   module Day
-
     # gives array of days in month
     # Date.new(2012,1,1).days_array
     #   => [ 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -16,6 +19,10 @@ module WeekOfMonth
     # @return [Array]
     def days_array
       day = self.beginning_of_month.to_date.wday
+      if WeekOfMonth.configuration.monday_active == true
+        day = 6 if day == 0
+        day = day - 1 unless day == 0
+      end
       array = []
       array[day] = 1
       (2..self.end_of_month.mday).each {|i| array << i }
@@ -28,7 +35,7 @@ module WeekOfMonth
     def name_of_week_day
       self.class.new(year,month,day).strftime('%A')
     end
-      
+
     # this code generates methods with names like 'upcoming_monday' and 'previous_monday'
     # Date.new(2013,1,1).upcoming_monday
     # => #<Date: 2013-01-07 ((2456300j,0s,0n),+0s,2299161j)>
@@ -42,14 +49,14 @@ module WeekOfMonth
           date = eval "self"
           if date.send(check)
             if date.class == Date
-              date = date.send(value,7) 
+              date = date.send(value,7)
             elsif date.class == Time
               date = date.send(value,(60 * 60 * 24 * 7))
             end
            else
              until date.send(check)
                if date.class == Date
-                 date = date.send(value,1) 
+                 date = date.send(value,1)
                elsif date.class == Time
                  date = date.send(value,(60 * 60 * 24))
                end
