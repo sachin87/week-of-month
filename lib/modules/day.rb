@@ -20,8 +20,7 @@ module WeekOfMonth
     def days_array
       day = self.beginning_of_month.to_date.wday
       if WeekOfMonth.configuration.monday_active == true
-        day = 6 if day == 0
-        day = day - 1 unless day == 0
+        day = day.zero? ? 6 : day - 1
       end
       array = []
       array[day] = 1
