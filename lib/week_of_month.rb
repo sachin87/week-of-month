@@ -4,7 +4,7 @@ require 'time'
 def require_file(file_name)
   RUBY_VERSION < '1.9' ? require(file_name) : require_relative(file_name)
 end
-
+require_file 'modules/configuration'
 require_file 'modules/day'
 require_file 'modules/month'
 require_file 'modules/week'
@@ -46,7 +46,7 @@ class Time
   include WeekOfMonth::Month
   include WeekOfMonth::Week
   include WeekOfMonth::Year
-  
+
   def leap?
     self.to_date.leap?
   end
@@ -69,6 +69,11 @@ class Hash
 end
 
 module WeekOfMonth
+  class << self
+    # A WeekOfMonth configuration object. Must act like a hash
+    # See WeekOfMonth::Configuration.
+    attr_writer :configuration
+  end
 
   def self.first_day=(val)
     @first_day = DAYS_IN_SEQUENCE[val]
@@ -78,9 +83,16 @@ module WeekOfMonth
     @first_day ||= 0
   end
 
-  def self.configure
-     yield
+  def self.configuration
+    @configuration ||= Configuration.new
   end
 
+  def self.configuration=(config)
+    @configuration = config
+  end
+
+  def self.configure
+    yield configuration
+  end
 end
 

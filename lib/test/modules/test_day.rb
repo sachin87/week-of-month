@@ -28,7 +28,32 @@ class TestDay < Test::Unit::TestCase
     end
   end
 
+  def test_days_array_monday
+    WeekOfMonth.configuration.monday_active = true
+    [Date,Time].each do |klass|
+      object = klass.new(2014,11,3)
+
+      days_array_for_november =  [nil, nil, nil, nil, nil, 1, 2,
+                                  3, 4, 5, 6, 7, 8, 9, 10, 11,
+                                  12, 13, 14, 15, 16, 17, 18,
+                                  19, 20, 21, 22, 23, 24, 25, 26,
+                                  27, 28, 29, 30]
+      assert_kind_of Array,object.days_array
+      assert_equal days_array_for_november, object.days_array
+
+      object = klass.new(2014,12,1)
+      days_array_for_december = [ 1, 2, 3, 4, 5, 6, 7,
+                             8, 9, 10, 11, 12, 13,
+                             14, 15, 16, 17, 18, 19,
+                             20, 21, 22, 23, 24, 25,
+                             26, 27, 28, 29, 30, 31]
+      assert_kind_of Array,object.days_array
+      assert_equal days_array_for_december, object.days_array
+    end
+  end
+
   def test_name_of_week_day
+    WeekOfMonth.configuration.monday_active = false
     [Date,Time].each do |klass|
       assert_equal "Saturday",  klass.new(2012,12,1).name_of_week_day
       assert_equal "Sunday",  klass.new(2012,12,2).name_of_week_day

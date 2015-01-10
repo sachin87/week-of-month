@@ -6,29 +6,34 @@
 
 [gem]: http://badge.fury.io/rb/week_of_month
 [climate]: https://codeclimate.com/github/sachin87/week-of-month
-[license]: http://opensource.org/licenses/MIT 
+[license]: http://opensource.org/licenses/MIT
 
 Week of month is a gem which gives you access to methods for the Date and Time class objects. Among accurately displaying the days of a week in the form of a calendar arrangement, this gem will also provide you with tools for identifying which week of the month a particular date lies.
 
 ## Getting Started
 
 Week of month is released as a Ruby Gem. The gem is to be installed within a Ruby
-or Rails application. To install, simply add the following to your Gemfile:
+on Rails application. To install, simply add the following to your Gemfile:
 
 ```ruby
 gem 'week_of_month'
 ```
 
-Run bundle install and don't forget to restart your server after you install a new gem. 
+Run bundle install and don't forget to restart your server after you install a new gem.
 
-You can also install this gem from the command line as: 
+You can also install this gem from the command line as:
 
 ```ruby
 gem install 'week_of_month'
 ```
-## Assumption
+## New! Configure week start day!
 
-Sunday is the first day of the week.
+include this line inside your application.rb:
+
+```ruby
+WeekOfMonth.configuration.monday_active = true
+```
+This will make all methods of "week of month" works with Monday for the week start
 
 ## Usage
 
@@ -39,39 +44,39 @@ Date.new(2012,1,1).week_split
 
 =begin
     [[1, 2, 3, 4, 5, 6, 7],
-	[8, 9, 10, 11, 12, 13, 14], 
-	[15, 16, 17, 18, 19, 20, 21], 
-	[22, 23, 24, 25, 26, 27, 28], 
-	[29, 30, 31]]
+    [8, 9, 10, 11, 12, 13, 14],
+    [15, 16, 17, 18, 19, 20, 21],
+    [22, 23, 24, 25, 26, 27, 28],
+    [29, 30, 31]]
 =end
 ```
 **Return the total number of weeks in a month.**
 
 ```ruby
 Date.new(2012,1,31).total_weeks
-# => 5 
+# => 5
 ```
 
 **Return what number week in the month a specific date lies. Can also return the number in english.**
 
 ```ruby
-Date.new(2012,1,31).week_of_month 
+Date.new(2012,1,31).week_of_month
 # => 5
 
 Date.new(2012,1,31).week_of_month_in_eng
-# => "Fifth" 
+# => "Fifth"
 ```
 
 **Return true if date lies in first week of month, otherwise false will be returned. Also works with second week and last week.**
 
 ```ruby
 Date.new(2012,1,1).first_week?
-# => true 
+# => true
 
 Date.new(2012,1,9).second_week?
-# => true 
+# => true
 
-Date.new(2012,1,31).last_week? 
+Date.new(2012,1,31).last_week?
 # => true
 ```
 
@@ -86,12 +91,12 @@ Date.new(2012,1,1).name_of_month
 
 ```ruby
 Date.new(2012,1,1).january?
-# => true 
+# => true
 
 Date.new(2012,1,9).august?
-# => false 
+# => false
 
-Date.new(2012,12,25).december? 
+Date.new(2012,12,25).december?
 # => true
 ```
 
@@ -99,17 +104,17 @@ Date.new(2012,12,25).december?
 
 ```ruby
 Date.new(2012,1,1).last_day_of_month
-# => 31 
+# => 31
 
 Date.new(2012,2,9).last_day_of_month
-# => 29 
+# => 29
 ```
 
 **Return the dates for which the day of the method falls (works for all days).**
 
 ```ruby
 Date.new(2012,1,1).all_mondays_in_month
-# => [2, 9, 16, 23, 30] 
+# => [2, 9, 16, 23, 30]
 ```
 
 **Return the day of the week for the specified date.**
