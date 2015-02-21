@@ -152,4 +152,9 @@ class TestDay < Test::Unit::TestCase
     end
   end
 
+  def test_last_business_day_of_month
+      assert_equal Date.new(2015,2,27), Date.new(2015,2,1).last_business_day_of_month
+      assert_equal Date.new(2015,1,30), Date.new(2015,1,1).last_business_day_of_month
+  end
+
 end
