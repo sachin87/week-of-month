@@ -175,51 +175,71 @@ class TestWeek < Test::Unit::TestCase
     end
   end
 
-   def test_days_past_in_week
-     [Date,Time].each do |klass|
-       assert_equal 2, klass.new(2013,1,1).days_past_in_week
-     end
-   end
+  def test_days_past_in_week
+    [Date,Time].each do |klass|
+      assert_equal 2, klass.new(2013,1,1).days_past_in_week
+    end
+  end
 
-   def test_days_left_in_week
-      [Date,Time].each do |klass|
-        assert_equal 5, klass.new(2013,1,1).days_left_in_week
-      end
+  def test_days_left_in_week
+    [Date,Time].each do |klass|
+      assert_equal 5, klass.new(2013,1,1).days_left_in_week
     end
-    
-    def test_beginning_of_week
-      [Date,Time].each do |klass|
-        assert_equal klass.new(2012,11,25), klass.new(2012,11,26).beginning_of_week
-        assert_equal klass.new(2012,11,25), klass.new(2012,11,25).beginning_of_week
-        assert_equal klass.new(2012,11,25), klass.new(2012,11,30).beginning_of_week
-      end
+  end
+
+  def test_beginning_of_week
+    [Date,Time].each do |klass|
+      assert_equal klass.new(2012,11,25), klass.new(2012,11,25).beginning_of_week
+      assert_equal klass.new(2012,11,25), klass.new(2012,11,26).beginning_of_week
+      assert_equal klass.new(2012,11,25), klass.new(2012,11,30).beginning_of_week
     end
-    
-    def test_end_of_week
-      [Date,Time].each do |klass|
-        assert_equal klass.new(2012,12,1), klass.new(2012,12,1).end_of_week
-        assert_equal klass.new(2012,12,8), klass.new(2012,12,2).end_of_week
-        assert_equal klass.new(2012,12,8), klass.new(2012,12,3).end_of_week
-        assert_equal klass.new(2012,12,8), klass.new(2012,12,7).end_of_week
-      end
+  end
+
+  def test_end_of_week
+    [Date,Time].each do |klass|
+      assert_equal klass.new(2012,12,1), klass.new(2012,12,1).end_of_week
+      assert_equal klass.new(2012,12,8), klass.new(2012,12,2).end_of_week
+      assert_equal klass.new(2012,12,8), klass.new(2012,12,3).end_of_week
+      assert_equal klass.new(2012,12,8), klass.new(2012,12,7).end_of_week
     end
-    
-    def test_next_week
-      [Date,Time].each do |klass|
-        assert_equal klass.new(2012,12,8), klass.new(2012,12,1).next_week
-        assert_equal klass.new(2012,12,22), klass.new(2012,12,15).next_week
-        assert_equal klass.new(2013,1,5), klass.new(2012,12,29).next_week
-        assert_equal klass.new(2012,12,26), klass.new(2012,12,19).next_week
-      end
+  end
+
+  def test_next_week
+    [Date,Time].each do |klass|
+      assert_equal klass.new(2012,12,8), klass.new(2012,12,1).next_week
+      assert_equal klass.new(2012,12,22), klass.new(2012,12,15).next_week
+      assert_equal klass.new(2013,1,5), klass.new(2012,12,29).next_week
+      assert_equal klass.new(2012,12,26), klass.new(2012,12,19).next_week
     end
-    
-    def test_previous_week
-      [Date,Time].each do |klass|
-        assert_equal klass.new(2012,12,1), klass.new(2012,12,8).previous_week
-        assert_equal klass.new(2012,12,15), klass.new(2012,12,22).previous_week
-        assert_equal klass.new(2012,12,29), klass.new(2013,1,5).previous_week
-        assert_equal klass.new(2012,12,19), klass.new(2012,12,26).previous_week
-      end
+  end
+
+  def test_previous_week
+    [Date,Time].each do |klass|
+      assert_equal klass.new(2012,12,1), klass.new(2012,12,8).previous_week
+      assert_equal klass.new(2012,12,15), klass.new(2012,12,22).previous_week
+      assert_equal klass.new(2012,12,29), klass.new(2013,1,5).previous_week
+      assert_equal klass.new(2012,12,19), klass.new(2012,12,26).previous_week
     end
-  
+  end
+
+  def test_monday_configured_beginning_of_week
+    WeekOfMonth.configuration.monday_active = true
+    [Date,Time].each do |klass|
+      assert_equal klass.new(2012,11,19), klass.new(2012,11,25).beginning_of_week
+      assert_equal klass.new(2012,11,26), klass.new(2012,11,26).beginning_of_week
+      assert_equal klass.new(2012,11,26), klass.new(2012,11,30).beginning_of_week
+    end
+    WeekOfMonth.configuration.monday_active = false 
+  end
+
+  def test_monday_configured_end_of_week
+    WeekOfMonth.configuration.monday_active = true
+    [Date,Time].each do |klass|
+      assert_equal klass.new(2012,12,2), klass.new(2012,12,1).end_of_week
+      assert_equal klass.new(2012,12,2), klass.new(2012,12,2).end_of_week
+      assert_equal klass.new(2012,12,9), klass.new(2012,12,3).end_of_week
+      assert_equal klass.new(2012,12,9), klass.new(2012,12,7).end_of_week
+    end
+    WeekOfMonth.configuration.monday_active = false 
+  end
 end
