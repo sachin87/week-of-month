@@ -151,5 +151,34 @@ class TestDay < Test::Unit::TestCase
       assert_equal klass.new(2012,12,30), klass.new(2013,1,1).previous_sunday
     end
   end
+    
+  def test_all_working_days_of_month
+    [Date].each do |klass|
+      assert_equal [
+        klass.new(2013,4,30), klass.new(2013,4,29),
+        klass.new(2013,4,26), klass.new(2013,4,25), klass.new(2013,4,24), klass.new(2013,4,23), klass.new(2013,4,22),
+        klass.new(2013,4,19), klass.new(2013,4,18), klass.new(2013,4,17), klass.new(2013,4,16), klass.new(2013,4,15),
+        klass.new(2013,4,12), klass.new(2013,4,11), klass.new(2013,4,10), klass.new(2013,4,9), klass.new(2013,4,8),
+        klass.new(2013,4,5), klass.new(2013,4,4), klass.new(2013,4,3), klass.new(2013,4,2), klass.new(2013,4,1),
+      ], klass.new(2013,4,1).all_working_days_of_month
+    end
+  end
+
+  def test_all_non_week_days_of_month
+    [Date].each do |klass|
+      assert_equal [
+        klass.new(2013,4,28), klass.new(2013,4,27),
+        klass.new(2013,4,21), klass.new(2013,4,20),
+        klass.new(2013,4,14), klass.new(2013,4,13),
+        klass.new(2013,4,7), klass.new(2013,4,6),
+      ], klass.new(2013,4,1).all_non_week_days_of_month
+    end
+  end
+
+  def test_first_working_day_of_the_month
+    [Date].each do |klass|
+      assert_equal klass.new(2013,1,1), klass.new(2013,1,1).first_working_day_of_the_month
+    end
+  end
 
 end
