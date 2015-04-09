@@ -1,12 +1,15 @@
 PATH
   remote: .
   specs:
-    week_of_month (1.2.3.2)
+    week_of_month (1.2.3.4)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    rake (10.1.0)
+    power_assert (0.2.2)
+    rake (10.4.2)
+    test-unit (3.0.8)
+      power_assert
 
 PLATFORMS
   ruby
@@ -14,4 +17,5 @@ PLATFORMS
 DEPENDENCIES
   bundler (>= 1.0)
   rake (>= 10.1.0)
+  test-unit
   week_of_month!
