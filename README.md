@@ -180,7 +180,8 @@ august?, september?, october?, november?, december?, last_day_of_month
 
 ## Contributing to Week of month
 
-Fork, fix, then send me a pull request.
+Fork, fix, then send me a pull request,
+and most important add yourself to list of authors in gemspec file.
 
 ## License
 
