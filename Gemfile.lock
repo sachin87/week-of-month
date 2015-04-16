@@ -6,16 +6,24 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    byebug (4.0.5)
+      columnize (= 0.9.0)
+    columnize (0.9.0)
     power_assert (0.2.2)
     rake (10.4.2)
+    redcarpet (3.2.3)
     test-unit (3.0.8)
       power_assert
+    yard (0.8.7.6)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bundler (>= 1.0)
+  byebug
   rake (>= 10.1.0)
+  redcarpet
   test-unit
   week_of_month!
+  yard
