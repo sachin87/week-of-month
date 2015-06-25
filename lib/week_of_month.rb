@@ -1,9 +1,11 @@
 require 'date'
 require 'time'
 
+# supports both version of ruby 1.8 and 1.9 for loading a file.
 def require_file(file_name)
   RUBY_VERSION < '1.9' ? require(file_name) : require_relative(file_name)
 end
+
 require_file 'modules/configuration'
 require_file 'modules/day'
 require_file 'modules/month'
@@ -27,6 +29,7 @@ end
       end
     end
 
+    # these methods are already defined in ruby 1.9 and above
     unless method_defined?(:sunday?)
       def sunday?    ; self.wday == 0; end
       def monday?    ; self.wday == 1; end

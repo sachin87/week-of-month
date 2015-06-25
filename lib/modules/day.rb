@@ -4,10 +4,13 @@
 # @author Sachin Singh
 
 module WeekOfMonth
+
   attr_accessor :config
+
   def initialize(config = Configuration.new)
     @config = config
   end
+
   module Day
     # gives array of days in month
     # Date.new(2012,1,1).days_array
