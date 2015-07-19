@@ -32,10 +32,10 @@ class TestConstant < Test::Unit::TestCase
                      5 => 'Fifth', 6 => 'Sixth',
                      7 =>"Seventh" }, klass::WEEK_OF_MONTH_IN_ENG)
 
-      assert_equal({ 1 => 'First', 2 => 'Second',
-                     3 => 'Third', 4 => 'Quatrième',
-                     5 => 'Cinquième', 6 => 'sixième',
-                     7 => "septième" }, klass::WEEK_OF_MONTH_IN_FR)
+      assert_equal({ 1 => 'Premier', 2 => 'Deuxième',
+                     3 => 'Troisième', 4 => 'Quatrième',
+                     5 => 'Cinquième', 6 => 'Sixième',
+                     7 => "Septième" }, klass::WEEK_OF_MONTH_IN_FR)
 
       assert_equal({ 1 => 'First', 2 => 'Second',
                      3 => 'Dritten', 4 => 'Vierte',
