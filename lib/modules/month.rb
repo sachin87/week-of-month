@@ -64,5 +64,19 @@ module WeekOfMonth
       end
     end
     
+    # this code generates method named like 'first_monday_in_month',
+    # 'second_tuesday_in_month', 'last_friday_in_month' etc. for 
+    # first, second, third, fourth and last seven days of week
+    # Date.new(2014,11).third_saturday_in_month
+    #   => #<Date: 2014-11-15>
+    # @return [Date]
+    DAYS_IN_SEQUENCE.each_with_index do |day_name, i|
+      WEEKS_IN_SEQUENCE.each.with_index(-1) do |week_number, j|
+        method_name = "#{week_number.downcase}_#{day_name.downcase}_in_month".to_sym
+        define_method(method_name) do
+          self.class.new(year, month, week_split.map{|d| d[i] }.compact[j])
+        end
+      end
+    end
   end
 end
