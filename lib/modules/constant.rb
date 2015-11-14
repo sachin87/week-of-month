@@ -37,5 +37,7 @@ module WeekOfMonth
     # array of ordered days names starting from sunday and ending with saturday.
     DAYS_IN_SEQUENCE = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 
+    # array of ordered days names starting from sunday and ending with saturday.
+    WEEKS_IN_SEQUENCE = %w(Last First Second Third Fourth Fifth)
   end
 end
