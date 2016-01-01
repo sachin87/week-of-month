@@ -8,7 +8,7 @@
 [climate]: https://codeclimate.com/github/sachin87/week-of-month
 [license]: http://opensource.org/licenses/MIT
 
-Week of month is a gem which gives you access to methods for the Date and Time class objects. Among accurately displaying the days of a week in the form of a calendar arrangement, this gem will also provide you with tools for identifying which week of the month a particular date lies.
+Week of month is a gem which extends Date and Time class with useful methods. Among accurately displaying the days of a week in the form of a calendar arrangement, this gem will also provide you with tools for identifying which week of the month a particular date lies.
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ on Rails application. To install, simply add the following to your Gemfile:
 gem 'week_of_month'
 ```
 
-Run bundle install and don't forget to restart your server after you install a new gem.
+Run bundle install and don't forget to restart your server after it.
 
 You can also install this gem from the command line as:
 
@@ -33,7 +33,7 @@ include this line inside your application.rb:
 ```ruby
 WeekOfMonth.configuration.monday_active = true
 ```
-This will make all methods of "week of month" works with Monday for the week start
+This will do all manipulations considering monday as first day of week.
 
 ## Usage
 
