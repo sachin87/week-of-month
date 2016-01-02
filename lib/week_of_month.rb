@@ -1,7 +1,7 @@
 require 'date'
 require 'time'
 
-# supports both version of ruby 1.8 and 1.9 for loading a file.
+# Supports both version of ruby 1.8 and 1.9 for loading a file.
 def require_file(file_name)
   RUBY_VERSION < '1.9' ? require(file_name) : require_relative(file_name)
 end
