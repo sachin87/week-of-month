@@ -1,10 +1,9 @@
-# @author Sachion Singh 
+# @author Sachion Singh
 
 RUBY_VERSION < '1.9' ? require('modules/constant') : require_relative('constant')
 
 module WeekOfMonth
   module Week
-
     include WeekOfMonth::Constant
 
     # returns week of month for a given date
@@ -12,8 +11,8 @@ module WeekOfMonth
     #   => 3
     # @return [Fixnum]
     def week_of_month
-      week_split.each_with_index do |o,i|
-        return (i + 1) if o.include?(self.day)
+      week_split.each_with_index do |o, i|
+        return (i + 1) if o.include?(day)
       end
     end
 
@@ -40,21 +39,21 @@ module WeekOfMonth
         week_of_month
       end
     end
-    
+
     # checks whether the given day lies in first week of month
     # Date.new(2012,11,1).first_week?
     #   => true
     # @return [Boolean]
     def first_week?
-      week_split[0].include?((self.day))
+      week_split[0].include?(day)
     end
-    
+
     # checks whether the given day lies in second week of month
     # Date.new(2012,11,8).second_week?
     #   => true
     # @return [Boolean]
     def second_week?
-      week_split[1].include?((self.day))
+      week_split[1].include?(day)
     end
 
     # checks whether the given day lies in last week of month
@@ -62,7 +61,7 @@ module WeekOfMonth
     #   => false
     # @return [Boolean]
     def last_week?
-      week_split.last.include?((self.day))
+      week_split.last.include?(day)
     end
 
     # returns total number of weeks in month
@@ -93,11 +92,11 @@ module WeekOfMonth
     # example-
     # Date.new(2012,1,1).week_split
     #   => [[1, 2, 3, 4, 5, 6, 7],
-    #       [8, 9, 10, 11, 12, 13, 14], 
-    #       [15, 16, 17, 18, 19, 20, 21], 
-    #       [22, 23, 24, 25, 26, 27, 28], 
+    #       [8, 9, 10, 11, 12, 13, 14],
+    #       [15, 16, 17, 18, 19, 20, 21],
+    #       [22, 23, 24, 25, 26, 27, 28],
     #       [29, 30, 31]
-    # @return [Array] 
+    # @return [Array]
     def week_split
       days_array.each_slice(7).to_a
     end
@@ -107,23 +106,23 @@ module WeekOfMonth
     #   => 'Third'
     # Date.new(2012,11,30).week_of_month_in_fr
     #   => "Cinquième"
-    # @return [String] 
-    constants.select{|x| x.to_s.match("WEEK_OF_MONTH_IN_")}.each do |const|
+    # @return [String]
+    constants.select { |x| x.to_s.match('WEEK_OF_MONTH_IN_') }.each do |const|
       define_method(const.to_s.downcase) do
-        eval "#{const.to_s}[week_of_month]"
+        eval "#{const}[week_of_month]"
       end
     end
-    
+
     # it returns days past in the week
     # Date.new(2012,11,15).days_past_in_week
     #   => 4
     # Time.new(2012,11,30).days_past_in_week
     #   => 5
-    # @return [Fixnum] 
+    # @return [Fixnum]
     def days_past_in_week
-      self.to_date.cwday
+      to_date.cwday
     end
-    
+
     # it returns days left in the week
     # Date.new(2012,11,15).days_left_in_week
     #   => 3
@@ -133,70 +132,69 @@ module WeekOfMonth
     def days_left_in_week
       7 - days_past_in_week
     end
-    
+
     # it returns date of the first day(sunday) of the week
     # Date.new(2012,11,15).beginning_of_week
     #   => #<Date: 2012-11-12 ((2456244j,0s,0n),+0s,2299161j)>
     # Time.new(2012,11,30).beginning_of_week
     #   => 2012-11-29 23:59:55 +0530
-    # @return [Date || Time] 
+    # @return [Date || Time]
     def beginning_of_week
-      self.class.new(year,month,current_week.detect {|i| !i.nil?})
+      self.class.new(year, month, current_week.detect { |i| !i.nil? })
     end
-    
+
     # it returns date of the last day(saturday) of the week
     # Date.new(2012,11,15).end_of_week
     #   => #<Date: 2012-11-19 ((2456251j,0s,0n),+0s,2299161j)>
     # Time.new(2012,11,30).end_of_week
     #   => 2012-11-30 00:00:02 +0530
-    # @return [Date || Time] 
+    # @return [Date || Time]
     def end_of_week
-      if current_week.index(self.day) == 6
-        self.class.new(year,month,current_week.last)
-      elsif current_week.index(self.day) < 6
+      if current_week.index(day) == 6
+        self.class.new(year, month, current_week.last)
+      elsif current_week.index(day) < 6
         if self.class == Date
-          self +  (6 -  current_week.index(self.day))
+          self +  (6 -  current_week.index(day))
         elsif self.class == Time
-          self +  (60 * 60 * 24  * (6 -  current_week.index(self.day)))
+          self +  (60 * 60 * 24 * (6 - current_week.index(day)))
         end
       end
     end
-    
+
     # it returns date of the next week day.
     # Date.new(2012,11,15).next_week
     #   => #<Date: 2012-11-22 ((2456254j,0s,0n),+0s,2299161j)>
     # Time.new(2012,11,30).next_week
     #   => 2012-11-30 00:00:07 +0530
-    # @return [Date || Time] 
+    # @return [Date || Time]
     def next_week
       if self.class == Date
-        self + 7 
+        self + 7
       elsif self.class == Time
         self + (60 * 60 * 24 * 7)
       end
     end
-    
+
     # it returns date of the previous week day.
     # Date.new(2012,11,15).previous_week
     #   => #<Date: 2012-11-08 ((2456240j,0s,0n),+0s,2299161j)>
     # Time.new(2012,11,30).previous_week
     #   => 2012-11-29 23:59:53 +0530
-    # @return [Date || Time] 
+    # @return [Date || Time]
     def previous_week
       if self.class == Date
-        self - 7 
+        self - 7
       elsif self.class == Time
         self - (60 * 60 * 24 * 7)
       end
     end
-    
+
     # it returns array of days in current week.
     # Date.new(2013,1,13).current_week
     # => [7, 8, 9, 10, 11, 12, 13]
-    # @return [Array]    
+    # @return [Array]
     def current_week
-      week_split.select{|c| c.include?((self.day))}.flatten
+      week_split.select { |c| c.include?(day) }.flatten
     end
-    
   end
 end
