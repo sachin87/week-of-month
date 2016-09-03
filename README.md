@@ -33,8 +33,7 @@ include this line inside your application.rb:
 ```ruby
 WeekOfMonth.configuration.monday_active = true
 ```
-This will do all manipulations considering monday as first day of week.
-
+This will do all manipulations considering Monday as the first day of a week.
 ## Usage
 
 **Return the days of the month as if they were displayed on a calendar. In this example, the first day of January starts on a Sunday. Note the format is always (year, month, day)**
@@ -67,7 +66,7 @@ Date.new(2012,1,31).week_of_month_in_eng
 # => "Fifth"
 ```
 
-**Return true if date lies in first week of month, otherwise false will be returned. Also works with second week and last week.**
+**Return true if date lies in the first week of a month, otherwise false will be returned. Also works with second week and last week.**
 
 ```ruby
 Date.new(2012,1,1).first_week?
@@ -181,7 +180,7 @@ august?, september?, october?, november?, december?, last_day_of_month
 ## Contributing to Week of month
 
 Fork, fix, then send me a pull request,
-and most important add yourself to list of authors in gemspec file.
+and most important add yourself to a list of authors in a gemspec file.
 
 ## License
 
