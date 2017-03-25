@@ -19,7 +19,7 @@ module WeekOfMonth
                     4 => 'Vierte', 5 => 'Fünfte', 6 => 'Sechste', 7 => 'siebte'}
 
     # hash containing japanese words from one to seven
-    WEEK_OF_MONTH_IN_JAP = { 1 => '第一', 2 => '第二', 3 => '第三',
+    WEEK_OF_MONTH_IN_JA = { 1 => '第一', 2 => '第二', 3 => '第三',
                     4 => '第四', 5 => '第五', 6=> '第六', 7 =>  '第七' }
 
     # hash containing month name with days in that month(in non leap year)

@@ -146,14 +146,14 @@ class TestWeek < Test::Unit::TestCase
     end
   end
 
-  def test_week_of_month_in_jap
+  def test_week_of_month_in_ja
     [Date,Time].each do |klass|
-      assert_equal '第一', klass.new(2012,12,1).week_of_month_in_jap
-      assert_equal '第二', klass.new(2012,12,4).week_of_month_in_jap
-      assert_equal '第三', klass.new(2012,12,9).week_of_month_in_jap
-      assert_equal '第四', klass.new(2012,12,16).week_of_month_in_jap
-      assert_equal '第五', klass.new(2012,12,24).week_of_month_in_jap
-      assert_equal '第六',  klass.new(2012,12,31).week_of_month_in_jap
+      assert_equal '第一', klass.new(2012,12,1).week_of_month_in_ja
+      assert_equal '第二', klass.new(2012,12,4).week_of_month_in_ja
+      assert_equal '第三', klass.new(2012,12,9).week_of_month_in_ja
+      assert_equal '第四', klass.new(2012,12,16).week_of_month_in_ja
+      assert_equal '第五', klass.new(2012,12,24).week_of_month_in_ja
+      assert_equal '第六',  klass.new(2012,12,31).week_of_month_in_ja
     end
   end
 
