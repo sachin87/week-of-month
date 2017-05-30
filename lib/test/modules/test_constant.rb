@@ -15,7 +15,7 @@ class TestConstant < Test::Unit::TestCase
 
       assert klass::WEEK_OF_MONTH_IN_FR
 
-      assert klass::WEEK_OF_MONTH_IN_JAP
+      assert klass::WEEK_OF_MONTH_IN_JA
 
       assert klass::MONTH_WITH_DAY
 
@@ -42,10 +42,10 @@ class TestConstant < Test::Unit::TestCase
                      5 => 'Fünfte', 6 => 'Sechste',
                      7 => "siebte" }, klass::WEEK_OF_MONTH_IN_GER)
 
-      assert_equal({ 1=>'最初', 2 =>'秒',
-                                          3 =>'サード', 4=> '第4回',
-                     5 =>'第五', 6=> 'シックス' ,
-                     7 => "第7" } ,  klass::WEEK_OF_MONTH_IN_JAP)
+      assert_equal({ 1 => '第一', 2 => '第二',
+                     3 => '第三', 4 => '第四',
+                     5 => '第五', 6=> '第六',
+                     7 =>  '第七' } ,  klass::WEEK_OF_MONTH_IN_JA)
 
       assert_equal({ :january => 1, :february => 2, :march => 3,
                      :april => 4, :may => 5, :june => 6, :july => 7,
@@ -62,4 +62,3 @@ class TestConstant < Test::Unit::TestCase
   end
 
 end
-
