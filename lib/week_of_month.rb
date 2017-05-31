@@ -75,7 +75,7 @@ module WeekOfMonth
   class << self
     # A WeekOfMonth configuration object. Must act like a hash
     # See WeekOfMonth::Configuration.
-    attr_writer :configuration
+    #attr_writer :configuration
   end
 
   def self.first_day=(val)
@@ -86,16 +86,5 @@ module WeekOfMonth
     @first_day ||= 0
   end
 
-  def self.configuration
-    @configuration ||= Configuration.new
-  end
-
-  def self.configuration=(config)
-    @configuration = config
-  end
-
-  def self.configure
-    yield configuration
-  end
 end
 
