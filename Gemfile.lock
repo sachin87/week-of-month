@@ -9,10 +9,10 @@ GEM
     byebug (4.0.5)
       columnize (= 0.9.0)
     columnize (0.9.0)
-    power_assert (0.2.2)
-    rake (10.4.2)
+    power_assert (0.4.1)
+    rake (12.0.0)
     redcarpet (3.2.3)
-    test-unit (3.0.8)
+    test-unit (3.2.3)
       power_assert
     yard (0.8.7.6)
 
@@ -20,10 +20,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (>= 1.0)
+  bundler (>= 1.15.0)
   byebug
-  rake (>= 10.1.0)
+  rake (>= 12.0.0)
   redcarpet
-  test-unit
+  test-unit (>= 3.2.3)
   week_of_month!
   yard
+
+BUNDLED WITH
+   1.15.0
