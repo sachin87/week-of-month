@@ -4,7 +4,6 @@ RUBY_VERSION < '1.9' ? require('modules/constant') : require_relative('constant'
 
 module WeekOfMonth
   module Week
-
     include WeekOfMonth::Constant
 
     # returns week of month for a given date
@@ -12,8 +11,8 @@ module WeekOfMonth
     #   => 3
     # @return [Fixnum]
     def week_of_month
-      week_split.each_with_index do |o,i|
-        return (i + 1) if o.include?(self.day)
+      week_split.each_with_index do |o, i|
+        return (i + 1) if o.include?(day)
       end
     end
 
@@ -46,7 +45,7 @@ module WeekOfMonth
     #   => true
     # @return [Boolean]
     def first_week?
-      week_split[0].include?((self.day))
+      week_split[0].include?(day)
     end
 
     # checks whether the given day lies in second week of month
@@ -54,7 +53,7 @@ module WeekOfMonth
     #   => true
     # @return [Boolean]
     def second_week?
-      week_split[1].include?((self.day))
+      week_split[1].include?(day)
     end
 
     # checks whether the given day lies in last week of month
@@ -62,7 +61,7 @@ module WeekOfMonth
     #   => false
     # @return [Boolean]
     def last_week?
-      week_split.last.include?((self.day))
+      week_split.last.include?(day)
     end
 
     # returns total number of weeks in month
@@ -116,9 +115,9 @@ module WeekOfMonth
     # Date.new(2012,11,30).week_of_month_in_fr
     #   => "Cinquième"
     # @return [String]
-    constants.select{|x| x.to_s.match("WEEK_OF_MONTH_IN_")}.each do |const|
+    constants.select { |x| x.to_s.match('WEEK_OF_MONTH_IN_') }.each do |const|
       define_method(const.to_s.downcase) do
-        eval "#{const.to_s}[week_of_month]"
+        eval "#{const}[week_of_month]"
       end
     end
 
@@ -129,7 +128,7 @@ module WeekOfMonth
     #   => 5
     # @return [Fixnum]
     def days_past_in_week
-      self.to_date.cwday
+      to_date.cwday
     end
 
     # it returns days left in the week
@@ -149,7 +148,7 @@ module WeekOfMonth
     #   => 2012-11-29 23:59:55 +0530
     # @return [Date || Time]
     def beginning_of_week
-      self.class.new(year,month,current_week.detect {|i| !i.nil?})
+      self.class.new(year, month, current_week.detect { |i| !i.nil? })
     end
 
     # it returns date of the last day(saturday) of the week
@@ -159,13 +158,13 @@ module WeekOfMonth
     #   => 2012-11-30 00:00:02 +0530
     # @return [Date || Time]
     def end_of_week
-      if current_week.index(self.day) == 6
-        self.class.new(year,month,current_week.last)
-      elsif current_week.index(self.day) < 6
+      if current_week.index(day) == 6
+        self.class.new(year, month, current_week.last)
+      elsif current_week.index(day) < 6
         if self.class == Date
-          self +  (6 -  current_week.index(self.day))
+          self +  (6 -  current_week.index(day))
         elsif self.class == Time
-          self +  (60 * 60 * 24  * (6 -  current_week.index(self.day)))
+          self +  (60 * 60 * 24 * (6 - current_week.index(day)))
         end
       end
     end
@@ -203,8 +202,7 @@ module WeekOfMonth
     # => [7, 8, 9, 10, 11, 12, 13]
     # @return [Array]
     def current_week
-      week_split.select{|c| c.include?((self.day))}.flatten
+      week_split.select { |c| c.include?(day) }.flatten
     end
-
   end
 end

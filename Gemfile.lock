@@ -6,14 +6,30 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    ast (2.3.0)
     byebug (4.0.5)
       columnize (= 0.9.0)
     columnize (0.9.0)
+    parallel (1.11.2)
+    parser (2.4.0.0)
+      ast (~> 2.2)
     power_assert (0.4.1)
+    powerpack (0.1.1)
+    rainbow (2.2.2)
+      rake
     rake (12.0.0)
     redcarpet (3.2.3)
+    rubocop (0.49.1)
+      parallel (~> 1.10)
+      parser (>= 2.3.3.1, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-progressbar (1.8.1)
     test-unit (3.2.3)
       power_assert
+    unicode-display_width (1.2.1)
     yard (0.8.7.6)
 
 PLATFORMS
@@ -24,6 +40,7 @@ DEPENDENCIES
   byebug
   rake (>= 12.0.0)
   redcarpet
+  rubocop
   test-unit (>= 3.2.3)
   week_of_month!
   yard

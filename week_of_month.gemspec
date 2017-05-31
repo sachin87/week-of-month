@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.version       = WeekOfMonth::VERSION
   s.summary       = 'Week of month!'
   s.description   = 'Its gives you week_of_month method on date and time objects, that returns week of the month.'
-  s.authors       =  %w(Sachin87 Tommyixi Matt-- berikin pablorusso AstonJ swapnilchincholkar hitendrasingh ilake fursich)
-  s.email         = %w(sachin.y87@gmail.com)
+  s.authors = %w[Sachin87 Tommyixi Matt-- berikin pablorusso AstonJ swapnilchincholkar hitendrasingh ilake fursich]
+  s.email         = %w[sachin.y87@gmail.com]
   s.homepage      = 'https://github.com/sachin87/week-of-month'
   s.files         = `git ls-files`.split("\n").sort
   s.require_paths = ['lib']
