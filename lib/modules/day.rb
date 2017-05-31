@@ -55,7 +55,7 @@ module WeekOfMonth
             elsif date.class == Time
               date = date.send(value,(60 * 60 * 24 * 7))
             end
-           else
+          else
              until date.send(check)
                if date.class == Date
                  date = date.send(value,1)
@@ -63,8 +63,8 @@ module WeekOfMonth
                  date = date.send(value,(60 * 60 * 24))
                end
              end
-           end
-           date
+          end
+          date
         end
       end
     end

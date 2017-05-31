@@ -7,7 +7,7 @@ RUBY_VERSION < '1.9' ? require('lib/week_of_month') : require_relative('../../we
 
 class TestWeek < Test::Unit::TestCase
 
-   def test_week_of_month
+  def test_week_of_month
     [Date,Time].each do |klass|
       assert_equal 5, klass.new(2013,1,31).week_of_month
 
@@ -35,7 +35,7 @@ class TestWeek < Test::Unit::TestCase
     end
   end
 
-   def test_general_week_of_month
+  def test_general_week_of_month
     [Date,Time].each do |klass|
       assert_equal 4, klass.new(2013,1,31).general_week_of_month
 
