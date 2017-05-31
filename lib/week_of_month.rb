@@ -72,11 +72,6 @@ class Hash
 end
 
 module WeekOfMonth
-  class << self
-    # A WeekOfMonth configuration object. Must act like a hash
-    # See WeekOfMonth::Configuration.
-    #attr_writer :configuration
-  end
 
   def self.first_day=(val)
     @first_day = DAYS_IN_SEQUENCE[val]
