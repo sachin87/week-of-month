@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    week_of_month (1.2.3.4)
+    week_of_month (1.2.4.1)
 
 GEM
   remote: https://rubygems.org/
@@ -13,7 +13,7 @@ GEM
     parallel (1.11.2)
     parser (2.4.0.0)
       ast (~> 2.2)
-    power_assert (0.4.1)
+    power_assert (1.1.0)
     powerpack (0.1.1)
     rainbow (2.2.2)
       rake
@@ -27,7 +27,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
-    test-unit (3.2.3)
+    test-unit (3.2.5)
       power_assert
     unicode-display_width (1.2.1)
     yard (0.8.7.6)
@@ -36,14 +36,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (>= 1.15.0)
+  bundler (>= 1.15.4)
   byebug
   rake (>= 12.0.0)
   redcarpet
   rubocop
-  test-unit (>= 3.2.3)
+  test-unit (>= 3.2.5)
   week_of_month!
   yard
 
 BUNDLED WITH
-   1.15.0
+   1.15.4
