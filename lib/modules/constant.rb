@@ -37,6 +37,9 @@ module WeekOfMonth
     DAYS_IN_SEQUENCE = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday].freeze
 
     # array of ordered days names starting from sunday and ending with saturday.
+    DAYS_IN_SEQUENCE_STARTING_MONDAY = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].freeze
+
+    # array of ordered days names starting from sunday and ending with saturday.
     WEEKS_IN_SEQUENCE = %w[Last First Second Third Fourth Fifth].freeze
   end
 end

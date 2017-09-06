@@ -59,7 +59,11 @@ module WeekOfMonth
     DAYS_IN_SEQUENCE.each_with_index do |day_name, i|
       method_name = "all_#{day_name.downcase}s_in_month".to_sym
       define_method(method_name) do
-        week_split.map { |d| d[i] }.compact
+        if WeekOfMonth.configuration.monday_active
+          week_split.map { |d| d[i-1] }.compact
+        else
+          week_split.map { |d| d[i] }.compact
+        end
       end
     end
 
@@ -73,7 +77,11 @@ module WeekOfMonth
       WEEKS_IN_SEQUENCE.each.with_index(-1) do |week_number, j|
         method_name = "#{week_number.downcase}_#{day_name.downcase}_in_month".to_sym
         define_method(method_name) do
-          self.class.new(year, month, week_split.map { |d| d[i] }.compact[j])
+          if WeekOfMonth.configuration.monday_active
+            self.class.new(year, month, week_split.map { |d| d[i-1] }.compact[j])
+          else
+            self.class.new(year, month, week_split.map { |d| d[i] }.compact[j])
+          end
         end
       end
     end
