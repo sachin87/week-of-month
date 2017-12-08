@@ -157,6 +157,11 @@ We believe strongly in not writing code unless we have to, so Week of month is b
 
 ## Version History
 
+###1.2.5
+
+Methods beginning_of_week and end_of_week renamed to
+starting_of_week and ending_of_week.
+
 ###1.2.1
 
 Support for Time class
