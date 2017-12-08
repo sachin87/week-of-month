@@ -155,17 +155,17 @@ class TestWeekForTime < Test::Unit::TestCase
     assert_equal 5, Time.new(2013, 1, 1).days_left_in_week
   end
 
-  def test_beginning_of_week
-    assert_equal Time.new(2012, 11, 25), Time.new(2012, 11, 25).beginning_of_week
-    assert_equal Time.new(2012, 11, 25), Time.new(2012, 11, 26).beginning_of_week
-    assert_equal Time.new(2012, 11, 25), Time.new(2012, 11, 30).beginning_of_week
+  def test_starting_of_week
+    assert_equal Time.new(2012, 11, 25), Time.new(2012, 11, 25).starting_of_week
+    assert_equal Time.new(2012, 11, 25), Time.new(2012, 11, 26).starting_of_week
+    assert_equal Time.new(2012, 11, 25), Time.new(2012, 11, 30).starting_of_week
   end
 
-  def test_end_of_week
-    assert_equal Time.new(2012, 12, 1), Time.new(2012, 12, 1).end_of_week
-    assert_equal Time.new(2012, 12, 8), Time.new(2012, 12, 2).end_of_week
-    assert_equal Time.new(2012, 12, 8), Time.new(2012, 12, 3).end_of_week
-    assert_equal Time.new(2012, 12, 8), Time.new(2012, 12, 7).end_of_week
+  def test_ending_of_week
+    assert_equal Time.new(2012, 12, 1), Time.new(2012, 12, 1).ending_of_week
+    assert_equal Time.new(2012, 12, 8), Time.new(2012, 12, 2).ending_of_week
+    assert_equal Time.new(2012, 12, 8), Time.new(2012, 12, 3).ending_of_week
+    assert_equal Time.new(2012, 12, 8), Time.new(2012, 12, 7).ending_of_week
   end
 
   def test_next_week
@@ -182,20 +182,20 @@ class TestWeekForTime < Test::Unit::TestCase
     assert_equal Time.new(2012, 12, 19), Time.new(2012, 12, 26).previous_week
   end
 
-  def test_monday_configured_beginning_of_week
+  def test_monday_configured_starting_of_week
     WeekOfMonth.configuration.monday_active = true
-    assert_equal Time.new(2012, 11, 19), Time.new(2012, 11, 25).beginning_of_week
-    assert_equal Time.new(2012, 11, 26), Time.new(2012, 11, 26).beginning_of_week
-    assert_equal Time.new(2012, 11, 26), Time.new(2012, 11, 30).beginning_of_week
+    assert_equal Time.new(2012, 11, 19), Time.new(2012, 11, 25).starting_of_week
+    assert_equal Time.new(2012, 11, 26), Time.new(2012, 11, 26).starting_of_week
+    assert_equal Time.new(2012, 11, 26), Time.new(2012, 11, 30).starting_of_week
     WeekOfMonth.configuration.monday_active = false
   end
 
-  def test_monday_configured_end_of_week
+  def test_monday_configured_ending_of_week
     WeekOfMonth.configuration.monday_active = true
-    assert_equal Time.new(2012, 12, 2), Time.new(2012, 12, 1).end_of_week
-    assert_equal Time.new(2012, 12, 2), Time.new(2012, 12, 2).end_of_week
-    assert_equal Time.new(2012, 12, 9), Time.new(2012, 12, 3).end_of_week
-    assert_equal Time.new(2012, 12, 9), Time.new(2012, 12, 7).end_of_week
+    assert_equal Time.new(2012, 12, 2), Time.new(2012, 12, 1).ending_of_week
+    assert_equal Time.new(2012, 12, 2), Time.new(2012, 12, 2).ending_of_week
+    assert_equal Time.new(2012, 12, 9), Time.new(2012, 12, 3).ending_of_week
+    assert_equal Time.new(2012, 12, 9), Time.new(2012, 12, 7).ending_of_week
     WeekOfMonth.configuration.monday_active = false
   end
 end
