@@ -3,6 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/week_of_month.svg)][gem]
 [![Climate](https://codeclimate.com/github/sachin87/week-of-month.png)][climate]
 [![License](http://img.shields.io/license/MIT.png?color=green)][license]
+[![CircleCI](https://circleci.com/gh/sachin87/week-of-month.svg?style=svg)](https://circleci.com/gh/sachin87/week-of-month)
 
 [gem]: http://badge.fury.io/rb/week_of_month
 [climate]: https://codeclimate.com/github/sachin87/week-of-month
