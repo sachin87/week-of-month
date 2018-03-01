@@ -24,5 +24,4 @@ jobs:
       - run:
           name: run tests
           command: |
-            TEST_FILES="$(circleci tests glob "lib/test/**/*.rb")"           
             bundle exec rake test
