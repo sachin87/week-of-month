@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: circleci/2.5.0-stretch-node-browsers
+       - image: circleci/2.4.1-node-browsers
 
     working_directory: ~/week-of-month
 
