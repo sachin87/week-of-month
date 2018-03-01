@@ -7,11 +7,13 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/ruby:2.4.1-node-browsers
+       - image: circleci/ruby:2.4.1-node-browsers
 
     working_directory: ~/week-of-month
 
     steps:
+      - checkout
+
       - run:
           # install gems
           name: install dependencies
