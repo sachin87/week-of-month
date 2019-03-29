@@ -26,7 +26,7 @@ module WeekOfMonth
       end
       array = []
       array[day] = 1
-      (2..end_of_month.mday).each { |i| array << i }
+      (2..ending_of_month.mday).each { |i| array << i }
       array
     end
 
@@ -90,7 +90,7 @@ module WeekOfMonth
     # #<Date: 2014-12-03 ((2456995j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-02 ((2456994j,0s,0n),+0s,2299161j)>,
     # #<Date: 2014-12-01 ((2456993j,0s,0n),+0s,2299161j)>]
     def all_working_days_of_month
-      end_of_month.downto(beginning_of_month).select(&:working_day?)
+      ending_of_month.downto(beginning_of_month).select(&:working_day?)
     end
 
     # returns array of all non working days of the month
@@ -100,14 +100,14 @@ module WeekOfMonth
     # #<Date: 2014-12-14 ((2457006j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-13 ((2457005j,0s,0n),+0s,2299161j)>,
     # #<Date: 2014-12-07 ((2456999j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-06 ((2456998j,0s,0n),+0s,2299161j)>]
     def all_non_week_days_of_month
-      end_of_month.downto(beginning_of_month).select(&:week_end?)
+      ending_of_month.downto(beginning_of_month).select(&:week_end?)
     end
 
     # returns first working/business day of the month
     # Date.new(2014,12,1).first_working_day_of_the_month
     # => #<Date: 2014-12-01 ((2456993j,0s,0n),+0s,2299161j)>
     def first_working_day_of_the_month
-      beginning_of_month.upto(end_of_month).find(&:working_day?)
+      beginning_of_month.upto(ending_of_month).find(&:working_day?)
     end
   end
 end

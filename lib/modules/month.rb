@@ -28,10 +28,10 @@ module WeekOfMonth
     end
 
     # returns date of last day of month for a given date.
-    # Date.new(2012,11,1).end_of_month
+    # Date.new(2012,11,1).ending_of_month
     #   => #<Date: 2012-11-30 ((2456262j,0s,0n),+0s,2299161j)>
     # @return [Date]
-    def end_of_month
+    def ending_of_month
       self.class.new(year, month, last_day_of_month)
     end
 

@@ -62,30 +62,30 @@ class TestMonthForDate < Test::Unit::TestCase
     assert_equal 31, Date.new(2012, 12, 31).last_day_of_month
   end
 
-  def test_end_of_month
-    assert_equal Date.new(2012, 1, 31), Date.new(2012, 1, 1).end_of_month
+  def test_ending_of_month
+    assert_equal Date.new(2012, 1, 31), Date.new(2012, 1, 1).ending_of_month
 
-    assert_equal Date.new(2012, 2, 29), Date.new(2012, 2, 2).end_of_month
+    assert_equal Date.new(2012, 2, 29), Date.new(2012, 2, 2).ending_of_month
 
-    assert_equal Date.new(2012, 3, 31), Date.new(2012, 3, 1).end_of_month
+    assert_equal Date.new(2012, 3, 31), Date.new(2012, 3, 1).ending_of_month
 
-    assert_equal Date.new(2012, 4, 30), Date.new(2012, 4, 3).end_of_month
+    assert_equal Date.new(2012, 4, 30), Date.new(2012, 4, 3).ending_of_month
 
-    assert_equal Date.new(2012, 5, 31), Date.new(2012, 5, 1).end_of_month
+    assert_equal Date.new(2012, 5, 31), Date.new(2012, 5, 1).ending_of_month
 
-    assert_equal Date.new(2012, 6, 30), Date.new(2012, 6, 30).end_of_month
+    assert_equal Date.new(2012, 6, 30), Date.new(2012, 6, 30).ending_of_month
 
-    assert_equal Date.new(2012, 7, 31), Date.new(2012, 7, 1).end_of_month
+    assert_equal Date.new(2012, 7, 31), Date.new(2012, 7, 1).ending_of_month
 
-    assert_equal Date.new(2012, 8, 31), Date.new(2012, 8, 5).end_of_month
+    assert_equal Date.new(2012, 8, 31), Date.new(2012, 8, 5).ending_of_month
 
-    assert_equal Date.new(2012, 9, 30), Date.new(2012, 9, 2).end_of_month
+    assert_equal Date.new(2012, 9, 30), Date.new(2012, 9, 2).ending_of_month
 
-    assert_equal Date.new(2012, 10, 31), Date.new(2012, 10, 22).end_of_month
+    assert_equal Date.new(2012, 10, 31), Date.new(2012, 10, 22).ending_of_month
 
-    assert_equal Date.new(2012, 11, 30), Date.new(2012, 11, 10).end_of_month
+    assert_equal Date.new(2012, 11, 30), Date.new(2012, 11, 10).ending_of_month
 
-    assert_equal Date.new(2012, 12, 31), Date.new(2012, 12, 15).end_of_month
+    assert_equal Date.new(2012, 12, 31), Date.new(2012, 12, 15).ending_of_month
   end
 
   def test_beginning_of_month
