@@ -9,7 +9,7 @@
 [climate]: https://codeclimate.com/github/sachin87/week-of-month
 [license]: http://opensource.org/licenses/MIT
 
-Week of month is a gem which extends Date and Time class with useful methods. Among accurately displaying the days of a week in the form of a calendar arrangement, this gem will also provide you with tools for identifying which week of the month a particular date lies.
+Week of month is a gem which extends Date and Time class with useful methods. Among accurately displaying the days of the week in the form of a calendar arrangement, this gem will also provide you with tools for identifying which week of the month a particular date lies.
 
 ## Getting Started
 
@@ -34,7 +34,7 @@ include this line inside your application.rb:
 ```ruby
 WeekOfMonth.configuration.monday_active = true
 ```
-This will do all manipulations considering Monday as the first day of a week.
+This will do all manipulations considering Monday as the first day of the week.
 ## Usage
 
 **Return the days of the month as if they were displayed on a calendar. In this example, the first day of January starts on a Sunday. Note the format is always (year, month, day)**
@@ -186,7 +186,7 @@ august?, september?, october?, november?, december?, last_day_of_month
 ## Contributing to Week of month
 
 Fork, fix, then send me a pull request,
-and most important add yourself to a list of authors in a gemspec file.
+and most importantly add yourself to a list of authors in a gemspec file.
 
 ## License
 
