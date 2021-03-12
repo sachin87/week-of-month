@@ -90,7 +90,12 @@ module WeekOfMonth
     # #<Date: 2014-12-03 ((2456995j,0s,0n),+0s,2299161j)>, #<Date: 2014-12-02 ((2456994j,0s,0n),+0s,2299161j)>,
     # #<Date: 2014-12-01 ((2456993j,0s,0n),+0s,2299161j)>]
     def all_working_days_of_month
-      ending_of_month.downto(beginning_of_month).select(&:working_day?)
+      date = eval 'self'
+      if date.class == Date
+        ending_of_month.downto(beginning_of_month).select(&:working_day?)
+      elsif date.class == Time
+        ending_of_month.to_date.downto(beginning_of_month.to_date).select(&:working_day?).map(&:to_time)
+      end
     end
 
     # returns array of all non working days of the month

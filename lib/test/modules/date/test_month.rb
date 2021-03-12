@@ -163,4 +163,102 @@ class TestMonthForDate < Test::Unit::TestCase
     assert_equal 'November', Date.new(2012, 11, 1).name_of_month
     assert_equal 'December', Date.new(2012, 12, 1).name_of_month
   end
+
+  def test_each_sunday_in_month
+    assert_equal Date.new(2013, 1, 6), Date.new(2013, 1, 1).first_sunday_in_month
+    assert_equal Date.new(2013, 1, 13), Date.new(2013, 1, 1).second_sunday_in_month
+    assert_equal Date.new(2013, 1, 20), Date.new(2013, 1, 1).third_sunday_in_month
+    assert_equal Date.new(2013, 1, 27), Date.new(2013, 1, 1).fourth_sunday_in_month
+    assert_nil Date.new(2013, 1, 1).fifth_sunday_in_month
+
+    assert_equal Date.new(2013, 2, 3), Date.new(2013, 2, 1).first_sunday_in_month
+    assert_equal Date.new(2013, 2, 10), Date.new(2013, 2, 1).second_sunday_in_month
+    assert_equal Date.new(2013, 2, 17), Date.new(2013, 2, 1).third_sunday_in_month
+    assert_equal Date.new(2013, 2, 24), Date.new(2013, 2, 1).fourth_sunday_in_month
+    assert_nil Date.new(2013, 2, 1).fifth_sunday_in_month
+  end
+
+  def test_each_monday_in_month
+    assert_equal Date.new(2013, 1, 7), Date.new(2013, 1, 1).first_monday_in_month
+    assert_equal Date.new(2013, 1, 14), Date.new(2013, 1, 1).second_monday_in_month
+    assert_equal Date.new(2013, 1, 21), Date.new(2013, 1, 1).third_monday_in_month
+    assert_equal Date.new(2013, 1, 28), Date.new(2013, 1, 1).fourth_monday_in_month
+    assert_nil Date.new(2013, 1, 1).fifth_monday_in_month
+
+    assert_equal Date.new(2013, 2, 4), Date.new(2013, 2, 1).first_monday_in_month
+    assert_equal Date.new(2013, 2, 11), Date.new(2013, 2, 1).second_monday_in_month
+    assert_equal Date.new(2013, 2, 18), Date.new(2013, 2, 1).third_monday_in_month
+    assert_equal Date.new(2013, 2, 25), Date.new(2013, 2, 1).fourth_monday_in_month
+    assert_nil Date.new(2013, 2, 1).fifth_monday_in_month
+  end
+
+  def test_each_tuesday_in_month
+    assert_equal Date.new(2013, 1, 1), Date.new(2013, 1, 1).first_tuesday_in_month
+    assert_equal Date.new(2013, 1, 8), Date.new(2013, 1, 1).second_tuesday_in_month
+    assert_equal Date.new(2013, 1, 15), Date.new(2013, 1, 1).third_tuesday_in_month
+    assert_equal Date.new(2013, 1, 22), Date.new(2013, 1, 1).fourth_tuesday_in_month
+    assert_equal Date.new(2013, 1, 29), Date.new(2013, 1, 1).fifth_tuesday_in_month
+
+    assert_equal Date.new(2013, 2, 5), Date.new(2013, 2, 1).first_tuesday_in_month
+    assert_equal Date.new(2013, 2, 12), Date.new(2013, 2, 1).second_tuesday_in_month
+    assert_equal Date.new(2013, 2, 19), Date.new(2013, 2, 1).third_tuesday_in_month
+    assert_equal Date.new(2013, 2, 26), Date.new(2013, 2, 1).fourth_tuesday_in_month
+    assert_nil Date.new(2013, 2, 1).fifth_tuesday_in_month
+  end
+
+  def test_each_wednesday_in_month
+    assert_equal Date.new(2013, 1, 2), Date.new(2013, 1, 1).first_wednesday_in_month
+    assert_equal Date.new(2013, 1, 9), Date.new(2013, 1, 1).second_wednesday_in_month
+    assert_equal Date.new(2013, 1, 16), Date.new(2013, 1, 1).third_wednesday_in_month
+    assert_equal Date.new(2013, 1, 23), Date.new(2013, 1, 1).fourth_wednesday_in_month
+    assert_equal Date.new(2013, 1, 30), Date.new(2013, 1, 1).fifth_wednesday_in_month
+
+    assert_equal Date.new(2013, 2, 6), Date.new(2013, 2, 1).first_wednesday_in_month
+    assert_equal Date.new(2013, 2, 13), Date.new(2013, 2, 1).second_wednesday_in_month
+    assert_equal Date.new(2013, 2, 20), Date.new(2013, 2, 1).third_wednesday_in_month
+    assert_equal Date.new(2013, 2, 27), Date.new(2013, 2, 1).fourth_wednesday_in_month
+    assert_nil Date.new(2013, 2, 1).fifth_wednesday_in_month
+  end
+
+  def test_each_thursday_in_month
+    assert_equal Date.new(2013, 1, 3), Date.new(2013, 1, 1).first_thursday_in_month
+    assert_equal Date.new(2013, 1, 10), Date.new(2013, 1, 1).second_thursday_in_month
+    assert_equal Date.new(2013, 1, 17), Date.new(2013, 1, 1).third_thursday_in_month
+    assert_equal Date.new(2013, 1, 24), Date.new(2013, 1, 1).fourth_thursday_in_month
+    assert_equal Date.new(2013, 1, 31), Date.new(2013, 1, 1).fifth_thursday_in_month
+
+    assert_equal Date.new(2013, 2, 7), Date.new(2013, 2, 1).first_thursday_in_month
+    assert_equal Date.new(2013, 2, 14), Date.new(2013, 2, 1).second_thursday_in_month
+    assert_equal Date.new(2013, 2, 21), Date.new(2013, 2, 1).third_thursday_in_month
+    assert_equal Date.new(2013, 2, 28), Date.new(2013, 2, 1).fourth_thursday_in_month
+    assert_nil Date.new(2013, 2, 1).fifth_thursday_in_month
+  end
+
+  def test_each_friday_in_month
+    assert_equal Date.new(2013, 1, 4), Date.new(2013, 1, 1).first_friday_in_month
+    assert_equal Date.new(2013, 1, 11), Date.new(2013, 1, 1).second_friday_in_month
+    assert_equal Date.new(2013, 1, 18), Date.new(2013, 1, 1).third_friday_in_month
+    assert_equal Date.new(2013, 1, 25), Date.new(2013, 1, 1).fourth_friday_in_month
+    assert_nil Date.new(2013, 1, 1).fifth_friday_in_month
+
+    assert_equal Date.new(2013, 2, 1), Date.new(2013, 2, 1).first_friday_in_month
+    assert_equal Date.new(2013, 2, 8), Date.new(2013, 2, 1).second_friday_in_month
+    assert_equal Date.new(2013, 2, 15), Date.new(2013, 2, 1).third_friday_in_month
+    assert_equal Date.new(2013, 2, 22), Date.new(2013, 2, 1).fourth_friday_in_month
+    assert_nil Date.new(2013, 2, 1).fifth_friday_in_month
+  end
+
+  def test_each_saturday_in_month
+    assert_equal Date.new(2013, 1, 5), Date.new(2013, 1, 1).first_saturday_in_month
+    assert_equal Date.new(2013, 1, 12), Date.new(2013, 1, 1).second_saturday_in_month
+    assert_equal Date.new(2013, 1, 19), Date.new(2013, 1, 1).third_saturday_in_month
+    assert_equal Date.new(2013, 1, 26), Date.new(2013, 1, 1).fourth_saturday_in_month
+    assert_nil Date.new(2013, 1, 1).fifth_saturday_in_month
+
+    assert_equal Date.new(2013, 2, 2), Date.new(2013, 2, 1).first_saturday_in_month
+    assert_equal Date.new(2013, 2, 9), Date.new(2013, 2, 1).second_saturday_in_month
+    assert_equal Date.new(2013, 2, 16), Date.new(2013, 2, 1).third_saturday_in_month
+    assert_equal Date.new(2013, 2, 23), Date.new(2013, 2, 1).fourth_saturday_in_month
+    assert_nil Date.new(2013, 2, 1).fifth_saturday_in_month
+  end
 end

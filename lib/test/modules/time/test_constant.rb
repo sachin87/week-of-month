@@ -54,5 +54,11 @@ class TestConstantForTime < Test::Unit::TestCase
 
     assert_equal(%w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday],
                  Time::DAYS_IN_SEQUENCE)
+
+    assert_equal(%w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday],
+                 Time::DAYS_IN_SEQUENCE_STARTING_MONDAY)
+
+    assert_equal(%w[Last First Second Third Fourth Fifth],
+                 Time::WEEKS_IN_SEQUENCE)
   end
 end

@@ -118,4 +118,7 @@ class TestDayForTime < Test::Unit::TestCase
     assert_equal Time.new(2012, 12, 30), Time.new(2013, 1, 1).previous_sunday
   end
 
+  def test_last_business_day_of_month
+    assert_equal Time.new(2013, 4, 30), Time.new(2013, 4, 1).last_business_day_of_month
+  end
 end

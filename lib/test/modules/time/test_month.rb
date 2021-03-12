@@ -163,4 +163,102 @@ class TestMonthForTime < Test::Unit::TestCase
     assert_equal 'November', Time.new(2012, 11, 1).name_of_month
     assert_equal 'December', Time.new(2012, 12, 1).name_of_month
   end
+
+  def test_each_sunday_in_month
+    assert_equal Time.new(2013, 1, 6), Time.new(2013, 1, 1).first_sunday_in_month
+    assert_equal Time.new(2013, 1, 13), Time.new(2013, 1, 1).second_sunday_in_month
+    assert_equal Time.new(2013, 1, 20), Time.new(2013, 1, 1).third_sunday_in_month
+    assert_equal Time.new(2013, 1, 27), Time.new(2013, 1, 1).fourth_sunday_in_month
+    assert_nil Time.new(2013, 1, 1).fifth_sunday_in_month
+
+    assert_equal Time.new(2013, 2, 3), Time.new(2013, 2, 1).first_sunday_in_month
+    assert_equal Time.new(2013, 2, 10), Time.new(2013, 2, 1).second_sunday_in_month
+    assert_equal Time.new(2013, 2, 17), Time.new(2013, 2, 1).third_sunday_in_month
+    assert_equal Time.new(2013, 2, 24), Time.new(2013, 2, 1).fourth_sunday_in_month
+    assert_nil Time.new(2013, 2, 1).fifth_sunday_in_month
+  end
+
+  def test_each_monday_in_month
+    assert_equal Time.new(2013, 1, 7), Time.new(2013, 1, 1).first_monday_in_month
+    assert_equal Time.new(2013, 1, 14), Time.new(2013, 1, 1).second_monday_in_month
+    assert_equal Time.new(2013, 1, 21), Time.new(2013, 1, 1).third_monday_in_month
+    assert_equal Time.new(2013, 1, 28), Time.new(2013, 1, 1).fourth_monday_in_month
+    assert_nil Time.new(2013, 1, 1).fifth_monday_in_month
+
+    assert_equal Time.new(2013, 2, 4), Time.new(2013, 2, 1).first_monday_in_month
+    assert_equal Time.new(2013, 2, 11), Time.new(2013, 2, 1).second_monday_in_month
+    assert_equal Time.new(2013, 2, 18), Time.new(2013, 2, 1).third_monday_in_month
+    assert_equal Time.new(2013, 2, 25), Time.new(2013, 2, 1).fourth_monday_in_month
+    assert_nil Time.new(2013, 2, 1).fifth_monday_in_month
+  end
+
+  def test_each_tuesday_in_month
+    assert_equal Time.new(2013, 1, 1), Time.new(2013, 1, 1).first_tuesday_in_month
+    assert_equal Time.new(2013, 1, 8), Time.new(2013, 1, 1).second_tuesday_in_month
+    assert_equal Time.new(2013, 1, 15), Time.new(2013, 1, 1).third_tuesday_in_month
+    assert_equal Time.new(2013, 1, 22), Time.new(2013, 1, 1).fourth_tuesday_in_month
+    assert_equal Time.new(2013, 1, 29), Time.new(2013, 1, 1).fifth_tuesday_in_month
+
+    assert_equal Time.new(2013, 2, 5), Time.new(2013, 2, 1).first_tuesday_in_month
+    assert_equal Time.new(2013, 2, 12), Time.new(2013, 2, 1).second_tuesday_in_month
+    assert_equal Time.new(2013, 2, 19), Time.new(2013, 2, 1).third_tuesday_in_month
+    assert_equal Time.new(2013, 2, 26), Time.new(2013, 2, 1).fourth_tuesday_in_month
+    assert_nil Time.new(2013, 2, 1).fifth_tuesday_in_month
+  end
+
+  def test_each_wednesday_in_month
+    assert_equal Time.new(2013, 1, 2), Time.new(2013, 1, 1).first_wednesday_in_month
+    assert_equal Time.new(2013, 1, 9), Time.new(2013, 1, 1).second_wednesday_in_month
+    assert_equal Time.new(2013, 1, 16), Time.new(2013, 1, 1).third_wednesday_in_month
+    assert_equal Time.new(2013, 1, 23), Time.new(2013, 1, 1).fourth_wednesday_in_month
+    assert_equal Time.new(2013, 1, 30), Time.new(2013, 1, 1).fifth_wednesday_in_month
+
+    assert_equal Time.new(2013, 2, 6), Time.new(2013, 2, 1).first_wednesday_in_month
+    assert_equal Time.new(2013, 2, 13), Time.new(2013, 2, 1).second_wednesday_in_month
+    assert_equal Time.new(2013, 2, 20), Time.new(2013, 2, 1).third_wednesday_in_month
+    assert_equal Time.new(2013, 2, 27), Time.new(2013, 2, 1).fourth_wednesday_in_month
+    assert_nil Time.new(2013, 2, 1).fifth_wednesday_in_month
+  end
+
+  def test_each_thursday_in_month
+    assert_equal Time.new(2013, 1, 3), Time.new(2013, 1, 1).first_thursday_in_month
+    assert_equal Time.new(2013, 1, 10), Time.new(2013, 1, 1).second_thursday_in_month
+    assert_equal Time.new(2013, 1, 17), Time.new(2013, 1, 1).third_thursday_in_month
+    assert_equal Time.new(2013, 1, 24), Time.new(2013, 1, 1).fourth_thursday_in_month
+    assert_equal Time.new(2013, 1, 31), Time.new(2013, 1, 1).fifth_thursday_in_month
+
+    assert_equal Time.new(2013, 2, 7), Time.new(2013, 2, 1).first_thursday_in_month
+    assert_equal Time.new(2013, 2, 14), Time.new(2013, 2, 1).second_thursday_in_month
+    assert_equal Time.new(2013, 2, 21), Time.new(2013, 2, 1).third_thursday_in_month
+    assert_equal Time.new(2013, 2, 28), Time.new(2013, 2, 1).fourth_thursday_in_month
+    assert_nil Time.new(2013, 2, 1).fifth_thursday_in_month
+  end
+
+  def test_each_friday_in_month
+    assert_equal Time.new(2013, 1, 4), Time.new(2013, 1, 1).first_friday_in_month
+    assert_equal Time.new(2013, 1, 11), Time.new(2013, 1, 1).second_friday_in_month
+    assert_equal Time.new(2013, 1, 18), Time.new(2013, 1, 1).third_friday_in_month
+    assert_equal Time.new(2013, 1, 25), Time.new(2013, 1, 1).fourth_friday_in_month
+    assert_nil Time.new(2013, 1, 1).fifth_friday_in_month
+
+    assert_equal Time.new(2013, 2, 1), Time.new(2013, 2, 1).first_friday_in_month
+    assert_equal Time.new(2013, 2, 8), Time.new(2013, 2, 1).second_friday_in_month
+    assert_equal Time.new(2013, 2, 15), Time.new(2013, 2, 1).third_friday_in_month
+    assert_equal Time.new(2013, 2, 22), Time.new(2013, 2, 1).fourth_friday_in_month
+    assert_nil Time.new(2013, 2, 1).fifth_friday_in_month
+  end
+
+  def test_each_saturday_in_month
+    assert_equal Time.new(2013, 1, 5), Time.new(2013, 1, 1).first_saturday_in_month
+    assert_equal Time.new(2013, 1, 12), Time.new(2013, 1, 1).second_saturday_in_month
+    assert_equal Time.new(2013, 1, 19), Time.new(2013, 1, 1).third_saturday_in_month
+    assert_equal Time.new(2013, 1, 26), Time.new(2013, 1, 1).fourth_saturday_in_month
+    assert_nil Time.new(2013, 1, 1).fifth_saturday_in_month
+
+    assert_equal Time.new(2013, 2, 2), Time.new(2013, 2, 1).first_saturday_in_month
+    assert_equal Time.new(2013, 2, 9), Time.new(2013, 2, 1).second_saturday_in_month
+    assert_equal Time.new(2013, 2, 16), Time.new(2013, 2, 1).third_saturday_in_month
+    assert_equal Time.new(2013, 2, 23), Time.new(2013, 2, 1).fourth_saturday_in_month
+    assert_nil Time.new(2013, 2, 1).fifth_saturday_in_month
+  end
 end
