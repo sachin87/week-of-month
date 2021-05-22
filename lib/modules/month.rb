@@ -85,5 +85,22 @@ module WeekOfMonth
         end
       end
     end
+
+    # this code generates method named like 'first_monday_in_month?',
+    # 'second_tuesday_in_month?', 'last_friday_in_month?' etc. for
+    # first, second, third, fourth and last seven days of week. It then relies 
+    # on other methods (i.e. `forth_saturday_in_month`) to see if self is equivalent
+    # Date.new(2021,5,22).fourth_saturday_in_month?
+    #   => true
+    # @return [Boolean]
+    DAYS_IN_SEQUENCE.each_with_index do |day_name, i|
+      WEEKS_IN_SEQUENCE.each.with_index(-1) do |week_number, j|
+        base_method_name = "#{week_number.downcase}_#{day_name.downcase}_in_month".to_sym
+        method_name = "#{week_number.downcase}_#{day_name.downcase}_in_month?".to_sym
+        define_method(method_name) do
+          self == send(base_method_name)
+        end
+      end
+    end
   end
 end
