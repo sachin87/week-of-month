@@ -72,16 +72,20 @@ module WeekOfMonth
     # first, second, third, fourth and last seven days of week
     # Date.new(2014,11).third_saturday_in_month
     #   => #<Date: 2014-11-15>
-    # @return [Date]
+    # @return [Date, nil]
     DAYS_IN_SEQUENCE.each_with_index do |day_name, i|
       WEEKS_IN_SEQUENCE.each.with_index(-1) do |week_number, j|
         method_name = "#{week_number.downcase}_#{day_name.downcase}_in_month".to_sym
         define_method(method_name) do
           if WeekOfMonth.configuration.monday_active
-            self.class.new(year, month, week_split.map { |d| d[i-1] }.compact[j])
+            day = week_split.map { |d| d[i-1] }.compact[j]
           else
-            self.class.new(year, month, week_split.map { |d| d[i] }.compact[j])
+            day = week_split.map { |d| d[i] }.compact[j]
           end
+
+          return day if day.nil?
+
+          self.class.new(year, month, day)
         end
       end
     end

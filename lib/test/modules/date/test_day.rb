@@ -118,6 +118,10 @@ class TestDayForDate < Test::Unit::TestCase
     assert_equal Date.new(2012, 12, 30), Date.new(2013, 1, 1).previous_sunday
   end
 
+  def test_last_business_day_of_month
+    assert_equal Date.new(2013, 4, 30), Date.new(2013, 4, 1).last_business_day_of_month
+  end
+
   def test_all_working_days_of_month
     assert_equal [
       Date.new(2013, 4, 30), Date.new(2013, 4, 29),
