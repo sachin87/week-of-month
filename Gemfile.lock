@@ -30,7 +30,7 @@ GEM
     test-unit (3.2.5)
       power_assert
     unicode-display_width (1.2.1)
-    yard (0.9.20)
+    yard (0.9.36)
 
 PLATFORMS
   ruby
